@@ -7,15 +7,16 @@ install:
 after_success: |
   if [ -n "$GITHUB_API_KEY" ]; then
     cd "$TRAVIS_BUILD_DIR"
-    # This generates a `web` directory containing the website.
-    make web
-    cd web
-    git init
-    git checkout -b gh-pages
-    git add .
-    git -c user.name='travis' -c user.email='travis' commit -m init
+    cd common.bundles/index
+    git clone --single-branch -b gh-pages https://github.com/aliosv/cryptex.git
+    cp _index.js cryptex
+    cp _index.css cryptex
+    cp index.html cryptex
+    cd cryptex
+    git add --all
+    git -c user.name='travis' -c user.email='travis' commit -m $TRAVIS_COMMIT
     # Make sure to make the output quiet, or else the API token will leak!
     # This works because the API key can replace your password.
-    git push -f -q https://aliosv:$GITHUB_API_KEY@github.com/aliosv/cryptex-gh-pages gh-pages &2>/dev/null
+    git push -f -q https://aliosv:$GITHUB_API_KEY@github.com/aliosv/cryptex gh-pages
     cd "$TRAVIS_BUILD_DIR"
   fi
