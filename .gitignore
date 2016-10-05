@@ -1,0 +1,11 @@
+**/*
+!.enb/make.js
+!common.blocks/**/*
+!common.bundles/index/index.bemjson.js
+!.borschik
+!.bowerrc
+!.travis.yml
+!.gitignore
+!bower.json
+!package.json
+!README.md

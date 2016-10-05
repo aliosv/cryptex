@@ -1,0 +1,83 @@
+.section_theme_footer {
+    height: 502px;
+    background: rgba(17, 117, 194, 0.82) url(section_theme_footer.png) 50% 0 no-repeat;
+    transition: all .3s ease-out;
+}
+
+.section_theme_footer .section__inner {
+    position: relative;
+    height: 100%;
+}
+
+.section_theme_footer .section__image {
+    position: absolute;
+    bottom: 0;
+    transition: all .3s ease-out;
+}
+
+.section_theme_footer .section__image_iphone {
+    left: 405px;
+    width: 318px;
+    height: 441px;
+    background: url(section_device_iphone.png) 0 0 no-repeat;
+}
+
+.section_theme_footer .section__image_nexus {
+    left: 160px;
+    width: 327px;
+    height: 446px;
+    background: url(section_device_nexus.png) 0 0 no-repeat;
+}
+
+.section_theme_footer .store-links {
+    position: absolute;
+    top: 170px;
+    left: 863px;
+    transition: all .3s ease-out;
+}
+
+.section_theme_footer .section__header {
+    margin-bottom: 35px;
+    color: #ebebee;
+    transition: all .3s ease-out;
+}
+
+.section_theme_footer a + a {
+    margin-left: 25px;
+}
+
+.section_theme_footer .copyright {
+    position: absolute;
+    bottom: 31px;
+    left: 40px;
+    color: rgba(235, 235, 238, 0.4);
+    font-weight: 600;
+    font-size: 12px;
+    line-height: normal;
+}
+
+@media all and (max-width: 1366px) {
+    .section_theme_footer {
+        height: 547px;
+    }
+
+    .section_theme_footer .store-links {
+        top: 66px;
+        left: 74px;
+    }
+
+    .section_theme_footer .section__header {
+        margin-bottom: 32px;
+        margin-left: 40px;
+    }
+
+    .section_theme_footer .copyright {
+        display: none;
+    }
+}
+
+.copyright {
+    color: rgba(235, 235, 238, 0.4);
+    font-weight: 600;
+    font-size: 12px;
+}

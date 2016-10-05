@@ -1,0 +1,11 @@
+.logos-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.logos-grid__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

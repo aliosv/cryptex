@@ -1,0 +1,17 @@
+.rates {
+    display: flex;
+}
+
+.rate {
+    color: #ebebee;
+}
+
+.rate__value {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.rate__name {
+    font-size: 12px;
+    opacity: 0.6;
+}

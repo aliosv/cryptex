@@ -1,0 +1,36 @@
+.section {
+}
+
+.section__inner {
+    box-sizing: border-box;
+    margin: auto;
+    width: 1366px;
+}
+
+.section__info {
+}
+
+.section__header {
+    position: relative;
+    font-size: 34px;
+    line-height: 1.18;
+}
+
+.section__header .icon {
+    position: absolute;
+    right: 100%;
+    margin-right: 17px;
+}
+
+.section__description {
+    margin: 25px 0 0;
+    font-size: 14px;
+    line-height: 1.57;
+    opacity: 0.6;
+}
+
+@media all and (max-width: 1366px) {
+    .section__inner {
+        width: 375px;
+    }
+}

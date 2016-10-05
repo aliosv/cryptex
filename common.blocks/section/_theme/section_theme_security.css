@@ -1,0 +1,44 @@
+.section_theme_security {
+    box-sizing: border-box;
+    padding: 150px 0 0;
+    height: 445px;
+    background: radial-gradient(circle at 50% 52%, #1175c3, #0f131e);
+    transition: all .3s ease-out;
+}
+
+.section_theme_security .section__inner {
+    position: relative;
+    padding: 0 136px 0 179px;
+    transition: all .3s ease-out;
+}
+
+.section_theme_security .section__image {
+    position: absolute;
+    top: -80px;
+    right: -60px;
+    width: 660px;
+    height: 476px;
+    background: url(section_theme_security.png) 0 0 no-repeat;
+
+}
+
+.section_theme_security .section__info {
+    width: 371px;
+    color: #ebebee;
+    transition: all .3s ease-out;
+}
+
+@media all and (max-width: 1366px) {
+    .section_theme_security {
+        padding-top: 91px;
+        height: 475px;
+    }
+
+    .section_theme_security .section__inner {
+        padding: 0 63px 0 59px;
+    }
+
+    .section_theme_security .section__info {
+        width: 275px;
+    }
+}

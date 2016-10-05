@@ -1,0 +1,21 @@
+.section_theme_rates {
+    padding: 105px 0 130px;
+    background-image: radial-gradient(circle at 50% 52%, #1175c3, #0f131e);
+}
+
+.section_theme_rates .section__inner {
+    display: flex;
+    padding: 0 170px 0;
+    justify-content: space-between;
+}
+
+.section_theme_rates .order-table {
+    height: 405px;
+}
+
+@media all and (max-width: 1366px) {
+    .section_theme_rates .section__inner {
+        flex-direction: column;
+        align-items: center;
+    }
+}

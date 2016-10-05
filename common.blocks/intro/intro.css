@@ -1,0 +1,67 @@
+.intro__header {
+    color: #ebebee;
+    text-align: center;
+    font-weight: 300;
+    font-size: 50px;
+}
+
+.intro__buttons {
+    margin: 30px 0 0;
+    text-align: center;
+}
+
+.intro__buttons .button {
+    width: 148px;
+    height: 37px;
+    border-radius: 3px;
+    box-shadow: 0 2px 15px 0 rgba(19, 24, 36, 0.2);
+    line-height: 37px;
+}
+
+.intro__buttons .button + .button {
+    margin-left: 27px;
+}
+
+.intro__buttons .button:first-child {
+    background-color: #1175c3;
+    color: #dddfe5;
+}
+
+.intro__buttons .button:last-child {
+    background-color: #37cf4f;
+    color: #131825;
+}
+
+.intro__about {
+    display: flex;
+    margin: 65px 0 0;
+    padding: 0 7%;
+    justify-content: space-between;
+}
+
+.intro__item {
+    margin: 0 3%;
+    text-align: center;
+}
+
+.intro__icon {
+    margin: 0 0 23px;
+    width: 78px;
+    height: 78px;
+    border: 1px solid rgba(235, 235, 238, 0.15);
+    border-radius: 50%;
+}
+
+.intro__caption {
+    margin: 0 0 9px;
+    color: #ebebee;
+    font-size: 20px;
+}
+
+.intro__description {
+    color: #ebebee;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.57;
+    opacity: 0.6;
+}

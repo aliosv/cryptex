@@ -1,0 +1,11 @@
+{
+  "name": "cryptex",
+  "ignore": [
+    "node_modules",
+    "libs"
+  ],
+  "dependencies": {
+    "bem-components": "git://github.com/bem/bem-components.git#v2.4.0"
+  },
+  "private": true
+}

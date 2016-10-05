@@ -1,0 +1,45 @@
+block('order-table').content()(function() {
+    return {
+        elem : 'inner',
+        content : {
+            elem : 'table',
+            tag : 'table',
+            content : [
+                {
+                    elem : 'caption',
+                    tag : 'caption',
+                    content : [
+                        this.ctx.name,
+                        this.ctx.total ? {
+                            elem : 'total',
+                            tag : 'span',
+                            content : this.ctx.total
+                        } : ''
+                    ]
+                },
+                {
+                    tag : 'tr',
+                    content : this.ctx.colNames.map(function(value) {
+                        return {
+                            tag : 'th',
+                            content : value
+                        };
+                    })
+                }
+            ].concat(this.ctx.data.map(function(value) {
+                    return {
+                        tag : 'tr',
+                        content : value.map(function(value) {
+                            var colorize = /^(\+|-)/.test(value);
+
+                            return {
+                                tag : 'td',
+                                cls : colorize ? value.indexOf('+') ? 'buy' : 'sell' : '',
+                                content : colorize ? value.slice(1) : value
+                            };
+                        })
+                    };
+                }))
+        }
+    };
+});
