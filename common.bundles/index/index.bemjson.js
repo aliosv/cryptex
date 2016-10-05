@@ -4,7 +4,7 @@
     head : [
         { elem : 'link', attrs : { href : "https://fonts.googleapis.com/css?family=Open+Sans" } },
         { elem : 'css', url : '_index.css' },
-        { elem : 'favicon', url : "i/favicon.ico" }
+        { elem : 'favicon' }
     ],
     scripts : [{ elem : 'js', url : '_index.js' }],
     mods : { theme : 'islands' },
