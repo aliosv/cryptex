@@ -6079,6 +6079,303 @@ provide(/** @exports */{
 });
 
 /**
+ * @module input
+ */
+
+modules.define('input', ['i-bem__dom', 'control'], function(provide, BEMDOM, Control) {
+
+/**
+ * @exports
+ * @class input
+ * @augments control
+ * @bem
+ */
+provide(BEMDOM.decl({ block : this.name, baseBlock : Control }, /** @lends input.prototype */{
+    onSetMod : {
+        'js' : {
+            'inited' : function() {
+                this.__base.apply(this, arguments);
+                this._val = this.elem('control').val();
+            }
+        }
+    },
+
+    /**
+     * Returns control value
+     * @returns {String}
+     * @override
+     */
+    getVal : function() {
+        return this._val;
+    },
+
+    /**
+     * Sets control value
+     * @param {String} val value
+     * @param {Object} [data] additional data
+     * @returns {input} this
+     */
+    setVal : function(val, data) {
+        val = String(val);
+
+        if(this._val !== val) {
+            this._val = val;
+
+            var control = this.elem('control');
+            control.val() !== val && control.val(val);
+
+            this.emit('change', data);
+        }
+
+        return this;
+    }
+}, /** @lends input */{
+    live : function() {
+        this.__base.apply(this, arguments);
+        return false;
+    }
+}));
+
+});
+
+/**
+ * @module input
+ */
+
+modules.define('input', ['tick', 'idle'], function(provide, tick, idle, Input) {
+
+var instances = [],
+    boundToTick,
+    bindToTick = function() {
+        boundToTick = true;
+        tick
+            .on('tick', update)
+            .start();
+        idle
+            .on({
+                idle : function() {
+                    tick.un('tick', update);
+                },
+                wakeup : function() {
+                    tick.on('tick', update);
+                }
+            })
+            .start();
+    },
+    update = function() {
+        var instance, i = 0;
+        while(instance = instances[i++]) {
+            instance.setVal(instance.elem('control').val());
+        }
+    };
+
+/**
+ * @exports
+ * @class input
+ * @bem
+ */
+provide(Input.decl(/** @lends input.prototype */{
+    onSetMod : {
+        'js' : {
+            'inited' : function() {
+                this.__base.apply(this, arguments);
+
+                boundToTick || bindToTick();
+
+                // сохраняем индекс в массиве инстансов чтобы потом быстро из него удалять
+                this._instanceIndex = instances.push(this) - 1;
+            },
+
+            '' : function() {
+                this.__base.apply(this, arguments);
+
+                // удаляем из общего массива instances
+                instances.splice(this._instanceIndex, 1);
+                // понижаем _instanceIndex всем тем кто был добавлен в instances после нас
+                var i = this._instanceIndex, instance;
+                while(instance = instances[i++]) --instance._instanceIndex;
+            }
+        }
+    },
+
+    /**
+     * Нормализация установки фокуса для IE
+     * @private
+     * @override
+     */
+    _focus : function() {
+        var input = this.elem('control')[0];
+        if(input.createTextRange && !input.selectionStart) {
+            var range = input.createTextRange();
+            range.move('character', input.value.length);
+            range.select();
+        } else {
+            input.focus();
+        }
+    }
+}));
+
+});
+
+/**
+ * @module tick
+ * @description Helpers for polling anything
+ */
+
+modules.define('tick', ['inherit', 'events'], function(provide, inherit, events) {
+
+var TICK_INTERVAL = 50,
+    global = this.global,
+
+    /**
+     * @class Tick
+     * @augments events:Emitter
+     */
+    Tick = inherit(events.Emitter, /** @lends Tick.prototype */{
+        /**
+         * @constructor
+         */
+        __constructor : function() {
+            this._timer = null;
+            this._isStarted = false;
+        },
+
+        /**
+         * Starts polling
+         */
+        start : function() {
+            if(!this._isStarted) {
+                this._isStarted = true;
+                this._scheduleTick();
+            }
+        },
+
+        /**
+         * Stops polling
+         */
+        stop : function() {
+            if(this._isStarted) {
+                this._isStarted = false;
+                global.clearTimeout(this._timer);
+            }
+        },
+
+        _scheduleTick : function() {
+            var _this = this;
+            this._timer = global.setTimeout(
+                function() {
+                    _this._onTick();
+                },
+                TICK_INTERVAL);
+        },
+
+        _onTick : function() {
+            this.emit('tick');
+
+            this._isStarted && this._scheduleTick();
+        }
+    });
+
+provide(
+    /**
+     * @exports
+     * @type Tick
+     */
+    new Tick());
+
+});
+
+/**
+ * @module idle
+ */
+
+modules.define('idle', ['inherit', 'events', 'jquery'], function(provide, inherit, events, $) {
+
+var IDLE_TIMEOUT = 3000,
+    USER_EVENTS = 'mousemove keydown click',
+    /**
+     * @class Idle
+     * @augments events:Emitter
+     */
+    Idle = inherit(events.Emitter, /** @lends Idle.prototype */{
+        /**
+         * @constructor
+         */
+        __constructor : function() {
+            this._timer = null;
+            this._isStarted = false;
+            this._isIdle = false;
+        },
+
+        /**
+         * Starts monitoring of idle state
+         */
+        start : function() {
+            if(!this._isStarted) {
+                this._isStarted = true;
+                this._startTimer();
+                $(document).on(USER_EVENTS, $.proxy(this._onUserAction, this));
+            }
+        },
+
+        /**
+         * Stops monitoring of idle state
+         */
+        stop : function() {
+            if(this._isStarted) {
+                this._isStarted = false;
+                this._stopTimer();
+                $(document).off(USER_EVENTS, this._onUserAction);
+            }
+        },
+
+        /**
+         * Returns whether state is idle
+         * @returns {Boolean}
+         */
+        isIdle : function() {
+            return this._isIdle;
+        },
+
+        _onUserAction : function() {
+            if(this._isIdle) {
+                this._isIdle = false;
+                this.emit('wakeup');
+            }
+
+            this._stopTimer();
+            this._startTimer();
+        },
+
+        _startTimer : function() {
+            var _this = this;
+            this._timer = setTimeout(
+                function() {
+                    _this._onTimeout();
+                },
+                IDLE_TIMEOUT);
+        },
+
+        _stopTimer : function() {
+            this._timer && clearTimeout(this._timer);
+        },
+
+        _onTimeout : function() {
+            this._isIdle = true;
+            this.emit('idle');
+        }
+    });
+
+provide(
+    /**
+     * @exports
+     * @type Idle
+     */
+    new Idle());
+
+});
+
+/**
  * @module button
  */
 
