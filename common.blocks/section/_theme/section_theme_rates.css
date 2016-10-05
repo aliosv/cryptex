@@ -19,3 +19,12 @@
         align-items: center;
     }
 }
+
+.orders {
+    display: flex;
+    justify-content: space-between;
+}
+
+.orders__item + .orders__item {
+    margin-left: 30px;
+}

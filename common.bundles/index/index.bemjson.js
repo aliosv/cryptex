@@ -2,7 +2,7 @@
     block : 'page',
     title : 'Cryptex - Trade digital currency exchange',
     head : [
-        { elem : 'link', attrs : { href : "https://fonts.googleapis.com/css?family=Open+Sans" } },
+        { elem : 'link', attrs : { href : 'https://fonts.googleapis.com/css?family=Open+Sans', rel : 'stylesheet' } },
         { elem : 'css', url : '_index.css' },
         { elem : 'favicon' }
     ],
@@ -18,37 +18,40 @@
                     block : 'header',
                     content : [
                         {
-                            block : 'menu'
+                            block : 'menu',
+                            mix : { block : 'header', elem : 'menu' }
                         },
                         {
-                            block : 'logo'
+                            block : 'logo',
+                            mix : { block : 'header', elem : 'logo' }
                         },
                         {
                             block : 'rates',
+                            mix : { block : 'header', elem : 'rates' },
                             content : [
                                 {
-                                    block : 'rate',
+                                    elem : 'item',
                                     content : [
                                         { elem : 'value', content : '604.414 USD' },
                                         { elem : 'name', content : '604.414 USD' }
                                     ]
                                 },
                                 {
-                                    block : 'rate',
+                                    elem : 'item',
                                     content : [
                                         { elem : 'value', content : '592.5 USD' },
                                         { elem : 'name', content : 'Low' }
                                     ]
                                 },
                                 {
-                                    block : 'rate',
+                                    elem : 'item',
                                     content : [
                                         { elem : 'value', content : '592.5 USD' },
                                         { elem : 'name', content : 'High' }
                                     ]
                                 },
                                 {
-                                    block : 'rate',
+                                    elem : 'item',
                                     content : [
                                         { elem : 'value', content : '597,447 BTC' },
                                         { elem : 'name', content : 'Volume' }
@@ -57,7 +60,38 @@
                             ]
                         },
                         {
-                            block : 'auth-form'
+                            block : 'header',
+                            elem : 'auth-form',
+                            content : {
+                                block : 'auth-form',
+                                tag : 'form',
+                                content : [
+                                    {
+                                        block : 'input',
+                                        mods : { size : 'm', theme : 'islands' },
+                                        mix : { block : 'auth-form', elem : 'login' },
+                                        placeholder : 'ID'
+                                    },
+                                    {
+                                        block : 'input',
+                                        mods : { size : 'm', theme : 'islands' },
+                                        mix : { block : 'auth-form', elem : 'password' },
+                                        placeholder : 'Password'
+                                    },
+                                    {
+                                        block : 'button',
+                                        mods : { size : 'm', theme : 'islands' },
+                                        mix : { block : 'auth-form', elem : 'sign-in' },
+                                        text : 'Sign In'
+                                    },
+                                    {
+                                        block : 'button',
+                                        mods : { size : 'm', theme : 'islands' },
+                                        mix : { block : 'auth-form', elem : 'sign-up' },
+                                        text : 'Sign Up'
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
