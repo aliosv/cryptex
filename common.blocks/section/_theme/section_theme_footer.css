@@ -16,14 +16,14 @@
 }
 
 .section_theme_footer .section__image_iphone {
-    left: 405px;
+    left: 425px;
     width: 318px;
     height: 441px;
     background: url(section_device_iphone.png) 0 0 no-repeat;
 }
 
 .section_theme_footer .section__image_nexus {
-    left: 160px;
+    left: 123px;
     width: 327px;
     height: 446px;
     background: url(section_device_nexus.png) 0 0 no-repeat;
@@ -61,18 +61,33 @@
         height: 547px;
     }
 
+    .section_theme_footer .section__image_iphone {
+        left: 113px;
+        width: 250px;
+        height: 346px;
+        background-size: auto 100%;
+    }
+
+    .section_theme_footer .section__image_nexus {
+        left: -15px;
+        width: 245px;
+        height: 334px;
+        background-size: auto 100%;
+    }
+
     .section_theme_footer .store-links {
         top: 66px;
-        left: 74px;
+        right: 33px;
+        left: 33px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     .section_theme_footer .section__header {
         margin-bottom: 32px;
         margin-left: 40px;
-    }
-
-    .section_theme_footer .copyright {
-        display: none;
+        width: 100%;
     }
 }
 

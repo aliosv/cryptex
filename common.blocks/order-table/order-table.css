@@ -9,6 +9,7 @@
 }
 
 .order-table__table {
+    width: 100%;
     border-collapse: collapse;
     background-color: #464f67;
     background-image: linear-gradient(to left, #464f67, #242c42);

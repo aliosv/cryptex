@@ -2,10 +2,17 @@
     display: flex;
 }
 
-.auth-form__password, .auth-form__sign-in {
+.auth-form .auth-form__password, .auth-form .auth-form__sign-in {
     margin-left: 10px;
 }
 
-.auth-form__sign-up {
+.auth-form .auth-form__sign-up {
     margin-left: 40px;
+}
+
+.auth-form .input {
+    width: 160px;
+    height: 31px;
+    border-radius: 3px;
+    border: solid 1px rgba(235, 235, 238, 0.4);
 }

@@ -1,6 +1,4 @@
 .section_theme_security {
-    box-sizing: border-box;
-    padding: 150px 0 0;
     height: 445px;
     background: radial-gradient(circle at 50% 52%, #1175c3, #0f131e);
     transition: all .3s ease-out;
@@ -9,6 +7,7 @@
 .section_theme_security .section__inner {
     position: relative;
     padding: 0 136px 0 179px;
+    height: 100%;
     transition: all .3s ease-out;
 }
 
@@ -19,10 +18,12 @@
     width: 660px;
     height: 476px;
     background: url(section_theme_security.png) 0 0 no-repeat;
-
+    transition: all .3s ease-out;
 }
 
 .section_theme_security .section__info {
+    position: relative;
+    top: 150px;
     width: 371px;
     color: #ebebee;
     transition: all .3s ease-out;
@@ -30,15 +31,24 @@
 
 @media all and (max-width: 1366px) {
     .section_theme_security {
-        padding-top: 91px;
         height: 475px;
     }
 
     .section_theme_security .section__inner {
-        padding: 0 63px 0 59px;
+        padding: 0 35px 0 64px;
+    }
+
+    .section_theme_security .section__image {
+        top: auto;
+        bottom: -52px;
+        left: 122px;
+        width: 442px;
+        height: 320px;
+        background-size: 100% auto;
     }
 
     .section_theme_security .section__info {
+        top: 36px;
         width: 275px;
     }
 }
