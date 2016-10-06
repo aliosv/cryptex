@@ -1,7 +1,6 @@
 .section_theme_rates {
     padding: 105px 0 130px;
-    background: #111d30;
-    /*background-image: radial-gradient(circle at 50% 52%, #1175c3, #0f131e);*/
+    background-image: radial-gradient(circle at 50% 52%, #263049, #161a26);
 }
 
 .section_theme_rates .section__inner {
@@ -12,13 +11,18 @@
 }
 
 .section_theme_rates .order-table {
+    width: 322px;
     height: 405px;
 }
 
 @media all and (max-width: 1366px) {
+    .section_theme_rates {
+        padding: 37px 0 57px;
+    }
+
     .section_theme_rates .section__inner {
-        flex-direction: column;
-        padding: 57px 0 37px;
+        flex-direction: column-reverse;
+        padding: 0;
         align-items: center;
     }
 
@@ -28,6 +32,6 @@
     }
 
     .section_theme_rates .order-table + .order-table {
-        margin-top: 38px;
+        margin-bottom: 38px;
     }
 }

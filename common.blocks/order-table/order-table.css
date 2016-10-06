@@ -1,44 +1,66 @@
 .order-table {
+    position: relative;
     overflow: hidden;
+    box-sizing: border-box;
+    padding: 37px 0 0;
 }
 
 .order-table__inner {
-    position: relative;
-    padding-top: 37px;
+    overflow: hidden;
+    overflow-y: auto;
     width: 100%;
+    height: 100%;
+}
+
+::-webkit-scrollbar-track {
+    width: 26px;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 8px;
+    border-radius: 50%;
+    background: #444854;
 }
 
 .order-table__table {
     width: 100%;
+    height: 100%;
     border-collapse: collapse;
-    background-color: #464f67;
-    background-image: linear-gradient(to left, #464f67, #242c42);
 }
 
 .order-table__caption {
-    color: #ebebee;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    color: #1175c3;
+    text-align: left;
     font-size: 18px;
-    line-height: 1.1;
+    line-height: 24px;
+}
+
+.order-table__caption span {
+    float: right;
+    color: #8b90a1;
+    font-size: 14px;
+}
+
+.order-table__table th {
+    font-size: 11px;
+}
+
+.order-table__table td {
+    font-size: 12px;
+}
+
+.order-table__table tr:nth-child(even) td {
+    background-color: rgba(180, 185, 198, 0.1);
 }
 
 .order-table__table td, .order-table__table th {
     padding: 8px 20px;
     color: #b4b9c6;
     text-align: left;
-    font-size: 0.6875em;
-    line-height: 1.3;
-}
-
-.order-table__table td {
-    background-color: #222634;
-}
-
-.order-table__table tr:nth-child(odd) td {
-    background-color: #111622;
-}
-
-.order-table__table .aright {
-    text-align: right;
+    line-height: 14px;
 }
 
 .order-table__table .sell {
@@ -47,52 +69,4 @@
 
 .order-table__table .buy {
     color: #37cf4f;
-}
-
-
-
-
-
-.scroll-table .container {
-    overflow-y: auto;
-    height: 360px;
-}
-
-.scroll-table .table {
-    margin-top: 0 !important;
-    width: 100%;
-    border-spacing: 0;
-}
-
-.scroll-table .table th {
-    padding: 0 !important;
-}
-
-.scroll-table .table td, .scroll-table .table th {
-    padding: 10px 25px;
-}
-
-.scroll-table .table th {
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 0;
-    border: none;
-    color: transparent;
-    white-space: nowrap;
-    line-height: 0;
-}
-
-.scroll-table .table th div {
-    position: absolute;
-    top: 0;
-    margin-left: -15px;
-    padding: 9px 25px;
-    background: transparent;
-    color: #fff;
-    color: #b4b9c6;
-    line-height: normal;
-}
-
-.scroll-table .table th:first-child div {
-    border: none;
 }

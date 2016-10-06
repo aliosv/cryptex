@@ -1,4 +1,57 @@
 .section_theme_intro {
     padding: 0 0 115px;
-    background: url(section_theme_intro.png) 50% 0 no-repeat, radial-gradient(circle at 50% 52%, #1175c3, #0f131e);
+    background: url(section_theme_intro.png) 50% 0 no-repeat, radial-gradient(circle at 50% 52%, #2b437a, #24315c);
+}
+
+@media all and (max-width: 1366px) {
+    .section_theme_intro .header {
+        display: block;
+        padding: 0 0 50px;
+    }
+
+    .section_theme_intro .header__inner {
+        position: relative;
+        height: 100%;
+    }
+
+    .section_theme_intro .menu {
+        display: block;
+    }
+
+    .section_theme_intro .header__logo {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+    }
+
+    .section_theme_intro .header__rates {
+        position: absolute;
+        top: 100%;
+    }
+
+    .section_theme_intro .header__auth-form {
+        display: none;
+    }
+
+    .section_theme_intro .intro__header {
+        font-size: 36px;
+        line-height: 46px;
+    }
+
+    .section_theme_intro .intro__buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section_theme_intro .intro__buttons .button + .button {
+        margin: 27px 0 0;
+    }
+
+    .section_theme_intro .intro__about {
+        flex-direction: column;
+    }
 }

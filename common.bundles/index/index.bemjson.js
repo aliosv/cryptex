@@ -16,84 +16,87 @@
             content : [
                 {
                     block : 'header',
-                    content : [
-                        {
-                            block : 'menu',
-                            mix : { block : 'header', elem : 'menu' }
-                        },
-                        {
-                            block : 'logo',
-                            mix : { block : 'header', elem : 'logo' }
-                        },
-                        {
-                            block : 'rates',
-                            mix : { block : 'header', elem : 'rates' },
-                            content : [
-                                {
-                                    elem : 'item',
-                                    content : [
-                                        { elem : 'value', content : '604.414 USD' },
-                                        { elem : 'name', content : '604.414 USD' }
-                                    ]
-                                },
-                                {
-                                    elem : 'item',
-                                    content : [
-                                        { elem : 'value', content : '592.5 USD' },
-                                        { elem : 'name', content : 'Low' }
-                                    ]
-                                },
-                                {
-                                    elem : 'item',
-                                    content : [
-                                        { elem : 'value', content : '592.5 USD' },
-                                        { elem : 'name', content : 'High' }
-                                    ]
-                                },
-                                {
-                                    elem : 'item',
-                                    content : [
-                                        { elem : 'value', content : '597,447 BTC' },
-                                        { elem : 'name', content : 'Volume' }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            block : 'header',
-                            elem : 'auth-form',
-                            content : {
-                                block : 'auth-form',
-                                tag : 'form',
+                    content : {
+                        elem : 'inner',
+                        content : [
+                            {
+                                block : 'menu',
+                                mix : { block : 'header', elem : 'menu' }
+                            },
+                            {
+                                block : 'logo',
+                                mix : { block : 'header', elem : 'logo' }
+                            },
+                            {
+                                block : 'rates',
+                                mix : { block : 'header', elem : 'rates' },
                                 content : [
                                     {
-                                        block : 'input',
-                                        mods : { size : 'm', theme : 'islands' },
-                                        mix : { block : 'auth-form', elem : 'login' },
-                                        placeholder : 'ID'
+                                        elem : 'item',
+                                        content : [
+                                            { elem : 'value', content : '604.414 USD' },
+                                            { elem : 'name', content : '604.414 USD' }
+                                        ]
                                     },
                                     {
-                                        block : 'input',
-                                        mods : { size : 'm', theme : 'islands' },
-                                        mix : { block : 'auth-form', elem : 'password' },
-                                        placeholder : 'Password'
+                                        elem : 'item',
+                                        content : [
+                                            { elem : 'value', content : '592.5 USD' },
+                                            { elem : 'name', content : 'Low' }
+                                        ]
                                     },
                                     {
-                                        block : 'button',
-                                        mods : { size : 'm', theme : 'islands' },
-                                        mix : { block : 'auth-form', elem : 'sign-in' },
-                                        text : 'Sign In'
+                                        elem : 'item',
+                                        content : [
+                                            { elem : 'value', content : '592.5 USD' },
+                                            { elem : 'name', content : 'High' }
+                                        ]
                                     },
                                     {
-                                        block : 'button',
-                                        mods : { size : 'm', theme : 'islands' },
-                                        mix : { block : 'auth-form', elem : 'sign-up' },
-                                        text : 'Sign Up'
+                                        elem : 'item',
+                                        content : [
+                                            { elem : 'value', content : '597,447 BTC' },
+                                            { elem : 'name', content : 'Volume' }
+                                        ]
                                     }
                                 ]
+                            },
+                            {
+                                block : 'header',
+                                elem : 'auth-form',
+                                content : {
+                                    block : 'auth-form',
+                                    tag : 'form',
+                                    content : [
+                                        {
+                                            block : 'input',
+                                            mods : { size : 'm', theme : 'islands' },
+                                            mix : { block : 'auth-form', elem : 'login' },
+                                            placeholder : 'ID'
+                                        },
+                                        {
+                                            block : 'input',
+                                            mods : { size : 'm', theme : 'islands' },
+                                            mix : { block : 'auth-form', elem : 'password' },
+                                            placeholder : 'Password'
+                                        },
+                                        {
+                                            block : 'button',
+                                            mods : { size : 'm', theme : 'islands' },
+                                            mix : { block : 'auth-form', elem : 'sign-in' },
+                                            text : 'Sign In'
+                                        },
+                                        {
+                                            block : 'button',
+                                            mods : { size : 'm', theme : 'islands' },
+                                            mix : { block : 'auth-form', elem : 'sign-up' },
+                                            text : 'Sign Up'
+                                        }
+                                    ]
+                                }
                             }
-                        }
-                    ]
+                        ]
+                    }
                 },
                 {
                     block : 'intro',
