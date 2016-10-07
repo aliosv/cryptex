@@ -962,6 +962,75 @@ html {
     
 /* ../../common.blocks/section/_theme/section_theme_rates.css: end */ /**/
 
+/* ../../common.blocks/tabs/tabs.css: begin */ /**/
+    .tabs {
+        width: 100%;
+    }
+    
+    .tabs__toggle {
+        display: -ms-flexbox;
+        display: flex;
+        margin: 0 0 20px;
+        border-bottom: 1px solid rgba(248, 248, 248, 0.15);
+        color: #8b90a1;
+        font-size: 12px;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    }
+    
+    .tabs__switch {
+        position: relative;
+        padding: 15px;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    .tabs__switch_active {
+        color: #37cf4f;
+        cursor: default;
+    }
+    
+    .tabs__switch_active:after {
+        position: absolute;
+        right: 0;
+        bottom: -1px;
+        left: 0;
+        display: block;
+        height: 1px;
+        background-image: linear-gradient(to left, #38cb4f, #2a4f9a);
+        content: '';
+    }
+    
+    .tabs__switch span {
+        display: block;
+    }
+    
+    .tabs__switch_active span {
+        color: #dddfe5;
+    }
+    
+    
+    .tabs__tabs {}
+    
+    .tabs__tab {
+        position: absolute;
+        overflow: hidden;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        transition: all .5s ease-out;
+    }
+    
+    .tabs__tab_active {
+        position: static;
+        display: block;
+        width: auto;
+        height: auto;
+        opacity: 1;
+    }
+    
+/* ../../common.blocks/tabs/tabs.css: end */ /**/
+
 /* ../../common.blocks/candlestick-chart/candlestick-chart.css: begin */ /**/
     .candlestick-chart {
         display: -ms-flexbox;
