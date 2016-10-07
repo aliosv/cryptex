@@ -582,20 +582,21 @@
                             ]
                         },
                         {
-                            block : 'store-link',
-                            tag : 'a',
+                            block : 'link',
+                            mix : { block : 'store-link' },
                             content : {
                                 block : 'icon',
                                 mods : { store : 'app-store' }
                             }
                         },
                         {
-                            block : 'store-link',
-                            tag : 'a',
+                            block : 'link',
+                            mix : { block : 'store-link' },
                             content : {
                                 block : 'icon',
                                 mods : { store : 'google-play' }
-                            }
+                            },
+                            url : 'https://play.google.com/store'
                         }
                     ]
                 },
