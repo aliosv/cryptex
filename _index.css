@@ -964,11 +964,71 @@ html {
 
 /* ../../common.blocks/candlestick-chart/candlestick-chart.css: begin */ /**/
     .candlestick-chart {
+        display: -ms-flexbox;
+        display: flex;
         width: 900px;
         height: 300px;
     }
     
+    .candlestick-chart__axis_candle {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+        margin: 0 30px 0 0;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+        -ms-flex-align: end;
+            align-items: flex-end;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    }
+    
+    .candlestick-chart__axis_histo {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+        margin: 0 0 0 30px;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+        -ms-flex-align: start;
+            align-items: flex-start;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    }
+    
+    .candlestick-chart__label {
+        position: relative;
+        color: #8b90a1;
+        font-size: 11px;
+    }
+    
     .candlestick-chart__chart {
+        position: relative;
+        height: 100%;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    }
+    
+    .candlestick-chart__levels {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    
+    .candlestick-chart__level {
+        position: absolute;
+        right: 0;
+        left: 0;
+        height: 1px;
+        background: rgba(255, 255, 255, .25);
+        content: '';
+    }
+    
+    .candlestick-chart__items {
         position: relative;
         display: -ms-flexbox;
         display: flex;
@@ -1013,12 +1073,15 @@ html {
     .candlestick-chart__candle_type_grow:before {
         background: #37cf4f;
     }
+    
     .candlestick-chart__candle_type_grow .candlestick-chart__candle-body {
         background: #37cf4f;
     }
+    
     .candlestick-chart__candle_type_fall:before {
         background: #e36262;
     }
+    
     .candlestick-chart__candle_type_fall .candlestick-chart__candle-body {
         background: #e36262;
     }
@@ -1027,7 +1090,7 @@ html {
         position: absolute;
         bottom: 0;
         width: 100%;
-        background: rgba(255, 255, 255, .5);
+        background: rgba(255, 255, 255, .3);
     }
     
 /* ../../common.blocks/candlestick-chart/candlestick-chart.css: end */ /**/
