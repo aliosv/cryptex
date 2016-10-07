@@ -915,24 +915,32 @@ html {
 
 /* ../../common.blocks/section/_theme/section_theme_rates.css: begin */ /**/
     .section_theme_rates {
-        padding: 105px 0 130px;
+        padding: 90px 0 130px;
         background-image: radial-gradient(circle at 50% 52%, #263049, #161a26);
     }
     
     .section_theme_rates .section__inner {
+        padding: 0 10% 0;
+        transition: all .3s ease-out;
+    }
+    
+    .section_theme_rates .tabs {
+        margin: 0 0 50px;
+    }
+    
+    .section_theme_rates .section__tables {
         display: -ms-flexbox;
         display: flex;
-        padding: 0 12.4% 0;
-        transition: all .3s ease-out;
+        margin: -15px;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
     }
     
     .section_theme_rates .order-table {
-        width: 31.3%;
+        margin: 15px;
         height: 405px;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
     }
     
     @media all and (max-width: 1000px) {
@@ -941,9 +949,12 @@ html {
         }
     
         .section_theme_rates .section__inner {
+            padding: 0;
+        }
+    
+        .section_theme_rates .section__tables {
             -ms-flex-direction: column-reverse;
                 flex-direction: column-reverse;
-            padding: 0;
             -ms-flex-align: center;
                 align-items: center;
         }
@@ -951,10 +962,6 @@ html {
         .section_theme_rates .order-table {
             width: 100%;
             height: 485px;
-        }
-    
-        .section_theme_rates .order-table + .order-table {
-            margin-bottom: 38px;
         }
     }
     
@@ -968,7 +975,7 @@ html {
     .tabs__toggle {
         display: -ms-flexbox;
         display: flex;
-        margin: 0 0 20px;
+        margin: 0 0 30px;
         border-bottom: 1px solid rgba(248, 248, 248, 0.15);
         color: #8b90a1;
         font-size: 12px;
@@ -1033,8 +1040,7 @@ html {
     .candlestick-chart {
         display: -ms-flexbox;
         display: flex;
-        margin: 0 0 50px;
-        padding: 20px 0;
+        padding: 10px 0 30px;
         width: 100%;
         height: 300px;
         -ms-flex-wrap: wrap;
@@ -1196,7 +1202,7 @@ html {
         overflow: hidden;
         -moz-box-sizing: border-box;
              box-sizing: border-box;
-        padding: 54px 0 0;
+        padding: 72px 0 0;
     }
     
     .order-table__inner {
@@ -1247,7 +1253,7 @@ html {
     
     .order-table__table th span {
         position: absolute;
-        top: 24px;
+        top: 42px;
         padding-right: 0 !important;
         padding-left: 0 !important;
     }
