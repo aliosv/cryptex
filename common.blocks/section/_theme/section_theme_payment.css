@@ -57,4 +57,29 @@
         margin: 0;
         width: 50%;
     }
+
+    .section_theme_payment .logos-grid__item:nth-child(1) {
+        order: 1;
+    }
+    .section_theme_payment .logos-grid__item:nth-child(2) {
+        order: 2;
+    }
+    .section_theme_payment .logos-grid__item:nth-child(3) {
+        order: 5;
+    }
+    .section_theme_payment .logos-grid__item:nth-child(4) {
+        order: 6;
+    }
+    .section_theme_payment .logos-grid__item:nth-child(5) {
+        order: 3;
+    }
+    .section_theme_payment .logos-grid__item:nth-child(6) {
+        order: 4;
+    }
+    .section_theme_payment .logos-grid__item:nth-child(7) {
+        order: 7;
+    }
+    .section_theme_payment .logos-grid__item:nth-child(8) {
+        order: 8;
+    }
 }
