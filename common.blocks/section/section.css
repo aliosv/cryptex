@@ -1,6 +1,4 @@
-.section {
-    overflow-x: hidden;
-}
+.section {}
 
 .section__inner {
     box-sizing: border-box;
@@ -9,8 +7,7 @@
     max-width: 1366px;
 }
 
-.section__info {
-}
+.section__info {}
 
 .section__header {
     position: relative;

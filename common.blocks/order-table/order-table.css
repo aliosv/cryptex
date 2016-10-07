@@ -2,7 +2,7 @@
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
-    padding: 37px 0 0;
+    padding: 54px 0 0;
 }
 
 .order-table__inner {
@@ -12,13 +12,12 @@
     height: 100%;
 }
 
-::-webkit-scrollbar-track {
-    width: 26px;
+.order-table__inner::-webkit-scrollbar {
+    width: 8px;
 }
 
-::-webkit-scrollbar-thumb {
-    width: 8px;
-    border-radius: 50%;
+.order-table__inner::-webkit-scrollbar-thumb {
+    border-radius: 4px;
     background: #444854;
 }
 
@@ -31,7 +30,9 @@
 .order-table__caption {
     position: absolute;
     top: 0;
-    width: 100%;
+    right: 0;
+    left: 0;
+    padding: 0 0 0 15px;
     color: #1175c3;
     text-align: left;
     font-size: 18px;
@@ -45,7 +46,16 @@
 }
 
 .order-table__table th {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
     font-size: 11px;
+}
+
+.order-table__table th span {
+    position: absolute;
+    top: 24px;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
 }
 
 .order-table__table td {
@@ -56,7 +66,7 @@
     background-color: rgba(180, 185, 198, 0.1);
 }
 
-.order-table__table td, .order-table__table th {
+.order-table__table td, .order-table__table th, .order-table__table th span {
     padding: 8px 20px;
     color: #b4b9c6;
     text-align: left;

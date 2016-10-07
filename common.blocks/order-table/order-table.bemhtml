@@ -22,7 +22,10 @@ block('order-table').content()(function() {
                     content : this.ctx.colNames.map(function(value) {
                         return {
                             tag : 'th',
-                            content : value
+                            content : {
+                                tag : 'span',
+                                content : value
+                            }
                         };
                     })
                 }

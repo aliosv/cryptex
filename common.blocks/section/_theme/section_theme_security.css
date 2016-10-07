@@ -6,14 +6,14 @@
 
 .section_theme_security .section__inner {
     position: relative;
-    padding: 0 136px 0 179px;
+    padding: 0 10% 0 13%;
     height: 100%;
     transition: all .3s ease-out;
 }
 
 .section_theme_security .section__image {
     position: absolute;
-    top: -80px;
+    bottom: -80px;
     right: -60px;
     width: 660px;
     height: 476px;
@@ -29,7 +29,7 @@
     transition: all .3s ease-out;
 }
 
-@media all and (max-width: 1366px) {
+@media all and (max-width: 1000px) {
     .section_theme_security {
         height: 475px;
     }

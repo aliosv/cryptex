@@ -1,7 +1,8 @@
 .page {
+    overflow-x: hidden;
+    min-width: 1000px;
     font-family: 'Open Sans';
     line-height: normal;
-    min-width: 1000px;
 }
 
 @media all and (max-width: 1000px) {
