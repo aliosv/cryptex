@@ -3841,428 +3841,95 @@ $(function() {
 
 });
 
+/** @class main-menu */
+modules.define('main-menu', ['i-bem__dom'], function(provide, BEMDOM) {
+    provide(BEMDOM.decl(this.name, /** @lends main-menu.prototype */{}, /** @lends main-menu */{
+        live : function() {
+            this.liveBindTo('close', 'click', function() {
+                this.delMod('opened');
+            });
+
+            this.liveBindTo('toggle', 'click', function() {
+                this.toggleMod('opened', true, '');
+            });
+        }
+    }));
+});
+
 /**
- * @module menu
+ * @module link
  */
 
 modules.define(
-    'menu',
-    ['i-bem__dom', 'control', 'keyboard__codes', 'menu-item'],
-    function(provide, BEMDOM, Control, keyCodes) {
-
-/** @const Number */
-var TIMEOUT_KEYBOARD_SEARCH = 1500;
+    'link',
+    ['i-bem__dom', 'control', 'events'],
+    function(provide, BEMDOM, Control, events) {
 
 /**
  * @exports
- * @class menu
+ * @class link
  * @augments control
  * @bem
  */
-provide(BEMDOM.decl({ block : this.name, baseBlock : Control }, /** @lends menu.prototype */{
+provide(BEMDOM.decl({ block : this.name, baseBlock : Control }, /** @lends link.prototype */{
     onSetMod : {
         'js' : {
             'inited' : function() {
-                this.__base.apply(this, arguments);
-                this._hoveredItem = null;
-                this._items = null;
+                this._url = this.params.url || this.domElem.attr('href');
 
-                this._lastTyping = {
-                    char : '',
-                    text : '',
-                    index : 0,
-                    time : 0
-                };
+                this.hasMod('disabled') && this.domElem.removeAttr('href');
             }
         },
 
         'disabled' : {
-            '*' : function(modName, modVal) {
-                this.__base.apply(this, arguments);
-                this.getItems().forEach(function(menuItem){
-                    menuItem.setMod(modName, modVal);
-                });
-            },
             'true' : function() {
                 this.__base.apply(this, arguments);
-                this.domElem.attr('aria-disabled', true);
+                this.domElem
+                    .removeAttr('href')
+                    .attr('aria-disabled', true);
             },
+
             '' : function() {
                 this.__base.apply(this, arguments);
-                this.domElem.removeAttr('aria-disabled');
+                this.domElem
+                    .attr('href', this._url)
+                    .removeAttr('aria-disabled');
             }
         }
     },
 
     /**
-     * Returns items
-     * @returns {menu-item[]}
+     * Returns url
+     * @returns {String}
      */
-    getItems : function() {
-        return this._items || (this._items = this.findBlocksInside('menu-item'));
+    getUrl : function() {
+        return this._url;
     },
 
     /**
-     * Sets content
-     * @param {String|jQuery} content
-     * @returns {menu} this
+     * Sets url
+     * @param {String} url
+     * @returns {link} this
      */
-    setContent : function(content) {
-        BEMDOM.update(this.domElem, content);
-        this._hoveredItem = null;
-        this._items = null;
+    setUrl : function(url) {
+        this._url = url;
+        this.hasMod('disabled') || this.domElem.attr('href', url);
         return this;
     },
 
-    /**
-     * Search menu item by keyboard event
-     * @param {jQuery.Event} e
-     * @returns {menu-item}
-     */
-    searchItemByKeyboardEvent : function(e) {
-        var currentTime = +new Date(),
-            charCode = e.charCode,
-            char = String.fromCharCode(charCode).toLowerCase(),
-            lastTyping = this._lastTyping,
-            index = lastTyping.index,
-            isSameChar = char === lastTyping.char && lastTyping.text.length === 1,
-            items = this.getItems();
-
-        if(charCode <= keyCodes.SPACE || e.ctrlKey || e.altKey || e.metaKey) {
-            lastTyping.time = currentTime;
-            return null;
-        }
-
-        if(currentTime - lastTyping.time > TIMEOUT_KEYBOARD_SEARCH || isSameChar) {
-            lastTyping.text = char;
-        } else {
-            lastTyping.text += char;
-        }
-
-        lastTyping.char = char;
-        lastTyping.time = currentTime;
-
-        // If key is pressed again, then continue to search to next menu item
-        if(isSameChar && items[index].getText().search(lastTyping.char) === 0) {
-            index = index >= items.length - 1? 0 : index + 1;
-        }
-
-        // 2 passes: from index to items.length and from 0 to index.
-        var i = index, len = items.length;
-        while(i < len) {
-            if(this._doesItemMatchText(items[i], lastTyping.text)) {
-                lastTyping.index = i;
-                return items[i];
-            }
-
-            i++;
-
-            if(i === items.length) {
-                i = 0;
-                len = index;
-            }
-        }
-
-        return null;
-    },
-
-    /** @override **/
-    _onFocus : function() {
-        this.__base.apply(this, arguments);
-        this
-            .bindToDoc('keydown', this._onKeyDown) // NOTE: should be called after __base
-            .bindToDoc('keypress', this._onKeyPress);
-    },
-
-    /** @override **/
-    _onBlur : function() {
-        this
-            .unbindFromDoc('keydown', this._onKeyDown)
-            .unbindFromDoc('keypress', this._onKeyPress)
-            .__base.apply(this, arguments);
-        this._hoveredItem && this._hoveredItem.delMod('hovered');
-    },
-
-    /**
-     * @param {Object} item
-     * @private
-     */
-    _onItemHover : function(item) {
-        if(item.hasMod('hovered')) {
-            this._hoveredItem && this._hoveredItem.delMod('hovered');
-            this._scrollToItem(this._hoveredItem = item);
-            this.domElem.attr('aria-activedescendant', item.domElem.attr('id'));
-        } else if(this._hoveredItem === item) {
-            this._hoveredItem = null;
-            this.domElem.removeAttr('aria-activedescendant');
-        }
-        this.emit('item-hover', { item : item });
-    },
-
-    /**
-     * @param {Object} item
-     * @private
-     */
-    _scrollToItem : function(item) {
-        var domElemOffsetTop = this.domElem.offset().top,
-            itemDomElemOffsetTop = item.domElem.offset().top,
-            relativeScroll;
-
-        if((relativeScroll = itemDomElemOffsetTop - domElemOffsetTop) < 0 ||
-            (relativeScroll =
-                itemDomElemOffsetTop +
-                item.domElem.outerHeight() -
-                domElemOffsetTop -
-                this.domElem.outerHeight()) > 0) {
-            this.domElem.scrollTop(this.domElem.scrollTop() + relativeScroll);
-        }
-    },
-
-    /**
-     * @param {Object} item
-     * @param {Object} data
-     * @private
-     */
-    _onItemClick : function(item, data) {
-        this.emit('item-click', { item : item, source : data.source });
-    },
-
-    /**
-     * @param {jQuery.Event} e
-     * @private
-     */
-    _onKeyDown : function(e) {
-        var keyCode = e.keyCode,
-            isArrow = keyCode === keyCodes.UP || keyCode === keyCodes.DOWN;
-
-        if(isArrow && !e.shiftKey) {
+    _onPointerClick : function(e) {
+        if(this.hasMod('disabled')) {
             e.preventDefault();
-
-            var dir = keyCode - 39, // using the features of key codes for "up"/"down" ;-)
-                items = this.getItems(),
-                len = items.length,
-                hoveredIdx = items.indexOf(this._hoveredItem),
-                nextIdx = hoveredIdx,
-                i = 0;
-
-            do {
-                nextIdx += dir;
-                nextIdx = nextIdx < 0? len - 1 : nextIdx >= len? 0 : nextIdx;
-                if(++i === len) return; // if we have no next item to hover
-            } while(items[nextIdx].hasMod('disabled'));
-
-            this._lastTyping.index = nextIdx;
-
-            items[nextIdx].setMod('hovered');
+        } else {
+            var event = new events.Event('click');
+            this.emit(event);
+            event.isDefaultPrevented() && e.preventDefault();
         }
-    },
-
-    /**
-     * @param {jQuery.Event} e
-     * @private
-     */
-    _onKeyPress : function(e) {
-        var item = this.searchItemByKeyboardEvent(e);
-        item && item.setMod('hovered');
-    },
-
-    /**
-     * @param {Object} item
-     * @param {String} text
-     * @private
-     */
-    _doesItemMatchText : function(item, text) {
-        return !item.hasMod('disabled') &&
-            item.getText().toLowerCase().search(text) === 0;
     }
-}, /** @lends menu */{
+}, /** @lends link */{
     live : function() {
-        this
-            .liveInitOnBlockInsideEvent({ modName : 'hovered', modVal : '*' }, 'menu-item', function(e) {
-                this._onItemHover(e.target);
-            })
-            .liveInitOnBlockInsideEvent('click', 'menu-item', function(e, data) {
-                this._onItemClick(e.target, data);
-            });
-
+        this.liveBindTo('control', 'pointerclick', this.prototype._onPointerClick);
         return this.__base.apply(this, arguments);
-    }
-}));
-
-});
-
-/**
- * @module control
- */
-
-modules.define(
-    'control',
-    ['i-bem__dom', 'dom', 'next-tick'],
-    function(provide, BEMDOM, dom, nextTick) {
-
-/**
- * @exports
- * @class control
- * @abstract
- * @bem
- */
-provide(BEMDOM.decl(this.name, /** @lends control.prototype */{
-    beforeSetMod : {
-        'focused' : {
-            'true' : function() {
-                return !this.hasMod('disabled');
-            }
-        }
-    },
-
-    onSetMod : {
-        'js' : {
-            'inited' : function() {
-                this._focused = dom.containsFocus(this.elem('control'));
-                this._focused?
-                    // if control is already in focus, we need to force _onFocus
-                    this._onFocus() :
-                    // if block already has focused mod, we need to focus control
-                    this.hasMod('focused') && this._focus();
-
-                this._tabIndex = this.elem('control').attr('tabindex');
-                if(this.hasMod('disabled') && this._tabIndex !== 'undefined')
-                    this.elem('control').removeAttr('tabindex');
-            }
-        },
-
-        'focused' : {
-            'true' : function() {
-                this._focused || this._focus();
-            },
-
-            '' : function() {
-                this._focused && this._blur();
-            }
-        },
-
-        'disabled' : {
-            'true' : function() {
-                this.elem('control').attr('disabled', true);
-                this.delMod('focused');
-                typeof this._tabIndex !== 'undefined' &&
-                    this.elem('control').removeAttr('tabindex');
-            },
-
-            '' : function() {
-                this.elem('control').removeAttr('disabled');
-                typeof this._tabIndex !== 'undefined' &&
-                    this.elem('control').attr('tabindex', this._tabIndex);
-            }
-        }
-    },
-
-    /**
-     * Returns name of control
-     * @returns {String}
-     */
-    getName : function() {
-        return this.elem('control').attr('name') || '';
-    },
-
-    /**
-     * Returns control value
-     * @returns {String}
-     */
-    getVal : function() {
-        return this.elem('control').val();
-    },
-
-    _onFocus : function() {
-        this._focused = true;
-        this.setMod('focused');
-    },
-
-    _onBlur : function() {
-        this._focused = false;
-        this.delMod('focused');
-    },
-
-    _focus : function() {
-        dom.isFocusable(this.elem('control'))?
-            this.elem('control').focus() :
-            this._onFocus(); // issues/1456
-    },
-
-    _blur : function() {
-        dom.isFocusable(this.elem('control'))?
-            this.elem('control').blur() :
-            this._onBlur();
-    }
-}, /** @lends control */{
-    live : function() {
-        this
-            .liveBindTo('control', 'focusin', function() {
-                this._focused || this._onFocus(); // to prevent double call of _onFocus in case of init by focus
-            })
-            .liveBindTo('control', 'focusout', this.prototype._onBlur);
-
-        var focused = dom.getFocused();
-        if(focused.hasClass(this.buildClass('control'))) {
-            var _this = this; // TODO: https://github.com/bem/bem-core/issues/425
-            nextTick(function() {
-                if(focused[0] === dom.getFocused()[0]) {
-                    var block = focused.closest(_this.buildSelector());
-                    block && block.bem(_this.getName());
-                }
-            });
-        }
-    }
-}));
-
-});
-
-/** @module control */
-
-modules.define(
-    'control',
-    function(provide, Control) {
-
-provide(Control.decl({
-    beforeSetMod : {
-        'hovered' : {
-            'true' : function() {
-                return !this.hasMod('disabled');
-            }
-        }
-    },
-
-    onSetMod : {
-        'disabled' : {
-            'true' : function() {
-                this.__base.apply(this, arguments);
-                this.delMod('hovered');
-            }
-        },
-
-        'hovered' : {
-            'true' : function() {
-                this.bindTo('mouseleave', this._onMouseLeave);
-            },
-
-            '' : function() {
-                this.unbindFrom('mouseleave', this._onMouseLeave);
-            }
-        }
-    },
-
-    _onMouseOver : function() {
-        this.setMod('hovered');
-    },
-
-    _onMouseLeave : function() {
-        this.delMod('hovered');
-    }
-}, {
-    live : function() {
-        return this
-            .liveBindTo('mouseover', this.prototype._onMouseOver)
-            .__base.apply(this, arguments);
     }
 }));
 
@@ -5942,101 +5609,6 @@ provide($);
 });
 
 /**
- * @module menu-item
- */
-
-modules.define('menu-item', ['i-bem__dom'], function(provide, BEMDOM) {
-
-/**
- * @exports
- * @class menu-item
- * @bem
- *
- * @param val Value of item
- */
-provide(BEMDOM.decl(this.name, /** @lends menu-item.prototype */{
-    beforeSetMod : {
-        'hovered' : {
-            'true' : function() {
-                return !this.hasMod('disabled');
-            }
-        }
-    },
-
-    onSetMod : {
-        'js' : {
-            'inited' : function() {
-                this.bindTo('pointerleave', this._onPointerLeave);
-            }
-        },
-
-        'disabled' : {
-            'true' : function() {
-                this
-                    .delMod('hovered')
-                    .domElem.attr('aria-disabled', true);
-            },
-            '' : function() {
-                this.domElem.removeAttr('aria-disabled');
-            }
-        },
-
-        'checked' : {
-            '*' : function(_, modVal) {
-                this.domElem.attr('aria-checked', !!modVal);
-            }
-        }
-    },
-
-    /**
-     * Checks whether given value is equal to current value
-     * @param {String|Number} val
-     * @returns {Boolean}
-     */
-    isValEq : function(val) {
-        // NOTE: String(true) == String(1) -> false
-        return String(this.params.val) === String(val);
-    },
-
-    /**
-     * Returns item value
-     * @returns {*}
-     */
-    getVal : function() {
-        return this.params.val;
-    },
-
-    /**
-     * Returns item text
-     * @returns {String}
-     */
-    getText : function() {
-        return this.params.text || this.domElem.text();
-    },
-
-    _onPointerOver : function() {
-        this.setMod('hovered');
-    },
-
-    _onPointerLeave : function() {
-        this.delMod('hovered');
-    },
-
-    _onPointerClick : function() {
-        this.hasMod('disabled') || this.emit('click', { source : 'pointer' });
-    }
-}, /** @lends menu-item */{
-    live : function() {
-        var ptp = this.prototype;
-        this
-            .liveBindTo('pointerover', ptp._onPointerOver)
-            .liveBindTo('pointerclick', ptp._onPointerClick);
-    }
-}));
-
-});
-
-/**
  * @module keyboard__codes
  */
 modules.define('keyboard__codes', function(provide) {
@@ -6075,6 +5647,348 @@ provide(/** @exports */{
     /** @type {Number} */
     DELETE : 46
 });
+
+});
+
+/**
+ * @module control
+ */
+
+modules.define(
+    'control',
+    ['i-bem__dom', 'dom', 'next-tick'],
+    function(provide, BEMDOM, dom, nextTick) {
+
+/**
+ * @exports
+ * @class control
+ * @abstract
+ * @bem
+ */
+provide(BEMDOM.decl(this.name, /** @lends control.prototype */{
+    beforeSetMod : {
+        'focused' : {
+            'true' : function() {
+                return !this.hasMod('disabled');
+            }
+        }
+    },
+
+    onSetMod : {
+        'js' : {
+            'inited' : function() {
+                this._focused = dom.containsFocus(this.elem('control'));
+                this._focused?
+                    // if control is already in focus, we need to force _onFocus
+                    this._onFocus() :
+                    // if block already has focused mod, we need to focus control
+                    this.hasMod('focused') && this._focus();
+
+                this._tabIndex = this.elem('control').attr('tabindex');
+                if(this.hasMod('disabled') && this._tabIndex !== 'undefined')
+                    this.elem('control').removeAttr('tabindex');
+            }
+        },
+
+        'focused' : {
+            'true' : function() {
+                this._focused || this._focus();
+            },
+
+            '' : function() {
+                this._focused && this._blur();
+            }
+        },
+
+        'disabled' : {
+            'true' : function() {
+                this.elem('control').attr('disabled', true);
+                this.delMod('focused');
+                typeof this._tabIndex !== 'undefined' &&
+                    this.elem('control').removeAttr('tabindex');
+            },
+
+            '' : function() {
+                this.elem('control').removeAttr('disabled');
+                typeof this._tabIndex !== 'undefined' &&
+                    this.elem('control').attr('tabindex', this._tabIndex);
+            }
+        }
+    },
+
+    /**
+     * Returns name of control
+     * @returns {String}
+     */
+    getName : function() {
+        return this.elem('control').attr('name') || '';
+    },
+
+    /**
+     * Returns control value
+     * @returns {String}
+     */
+    getVal : function() {
+        return this.elem('control').val();
+    },
+
+    _onFocus : function() {
+        this._focused = true;
+        this.setMod('focused');
+    },
+
+    _onBlur : function() {
+        this._focused = false;
+        this.delMod('focused');
+    },
+
+    _focus : function() {
+        dom.isFocusable(this.elem('control'))?
+            this.elem('control').focus() :
+            this._onFocus(); // issues/1456
+    },
+
+    _blur : function() {
+        dom.isFocusable(this.elem('control'))?
+            this.elem('control').blur() :
+            this._onBlur();
+    }
+}, /** @lends control */{
+    live : function() {
+        this
+            .liveBindTo('control', 'focusin', function() {
+                this._focused || this._onFocus(); // to prevent double call of _onFocus in case of init by focus
+            })
+            .liveBindTo('control', 'focusout', this.prototype._onBlur);
+
+        var focused = dom.getFocused();
+        if(focused.hasClass(this.buildClass('control'))) {
+            var _this = this; // TODO: https://github.com/bem/bem-core/issues/425
+            nextTick(function() {
+                if(focused[0] === dom.getFocused()[0]) {
+                    var block = focused.closest(_this.buildSelector());
+                    block && block.bem(_this.getName());
+                }
+            });
+        }
+    }
+}));
+
+});
+
+/** @module control */
+
+modules.define(
+    'control',
+    function(provide, Control) {
+
+provide(Control.decl({
+    beforeSetMod : {
+        'hovered' : {
+            'true' : function() {
+                return !this.hasMod('disabled');
+            }
+        }
+    },
+
+    onSetMod : {
+        'disabled' : {
+            'true' : function() {
+                this.__base.apply(this, arguments);
+                this.delMod('hovered');
+            }
+        },
+
+        'hovered' : {
+            'true' : function() {
+                this.bindTo('mouseleave', this._onMouseLeave);
+            },
+
+            '' : function() {
+                this.unbindFrom('mouseleave', this._onMouseLeave);
+            }
+        }
+    },
+
+    _onMouseOver : function() {
+        this.setMod('hovered');
+    },
+
+    _onMouseLeave : function() {
+        this.delMod('hovered');
+    }
+}, {
+    live : function() {
+        return this
+            .liveBindTo('mouseover', this.prototype._onMouseOver)
+            .__base.apply(this, arguments);
+    }
+}));
+
+});
+
+/**
+ * @module button
+ */
+
+modules.define(
+    'button',
+    ['i-bem__dom', 'control', 'jquery', 'dom', 'functions', 'keyboard__codes'],
+    function(provide, BEMDOM, Control, $, dom, functions, keyCodes) {
+
+/**
+ * @exports
+ * @class button
+ * @augments control
+ * @bem
+ */
+provide(BEMDOM.decl({ block : this.name, baseBlock : Control }, /** @lends button.prototype */{
+    beforeSetMod : {
+        'pressed' : {
+            'true' : function() {
+                return !this.hasMod('disabled') || this.hasMod('togglable');
+            }
+        },
+
+        'focused' : {
+            '' : function() {
+                return !this._isPointerPressInProgress;
+            }
+        }
+    },
+
+    onSetMod : {
+        'js' : {
+            'inited' : function() {
+                this.__base.apply(this, arguments);
+                this._isPointerPressInProgress = false;
+                this._focusedByPointer = false;
+            }
+        },
+
+        'disabled' : {
+            'true' : function() {
+                this.__base.apply(this, arguments);
+                this.hasMod('togglable') || this.delMod('pressed');
+                this.domElem.attr('aria-disabled', true);
+            },
+            '' : function() {
+                this.__base.apply(this, arguments);
+                this.domElem.removeAttr('aria-disabled');
+            }
+        },
+
+        'focused' : {
+            'true' : function() {
+                this.__base.apply(this, arguments);
+                this._focusedByPointer || this.setMod('focused-hard');
+            },
+
+            '' : function() {
+                this.__base.apply(this, arguments);
+                this.delMod('focused-hard');
+            }
+        }
+    },
+
+    /**
+     * Returns text of the button
+     * @returns {String}
+     */
+    getText : function() {
+        return this.elem('text').text();
+    },
+
+    /**
+     * Sets text to the button
+     * @param {String} text
+     * @returns {button} this
+     */
+    setText : function(text) {
+        this.elem('text').text(text || '');
+        return this;
+    },
+
+    _onFocus : function() {
+        if(this._isPointerPressInProgress) return;
+
+        this.__base.apply(this, arguments);
+        this.bindTo('control', 'keydown', this._onKeyDown);
+    },
+
+    _onBlur : function() {
+        this
+            .unbindFrom('control', 'keydown', this._onKeyDown)
+            .__base.apply(this, arguments);
+    },
+
+    _onPointerPress : function() {
+        if(!this.hasMod('disabled')) {
+            this._isPointerPressInProgress = true;
+            this
+                .bindToDoc('pointerrelease', this._onPointerRelease)
+                .setMod('pressed');
+        }
+    },
+
+    _onPointerRelease : function(e) {
+        this._isPointerPressInProgress = false;
+        this.unbindFromDoc('pointerrelease', this._onPointerRelease);
+
+        if(dom.contains(this.elem('control'), $(e.target))) {
+            this._focusedByPointer = true;
+            this._focus();
+            this._focusedByPointer = false;
+            this
+                ._updateChecked()
+                .emit('click');
+        } else {
+            this._blur();
+        }
+
+        this.delMod('pressed');
+    },
+
+    _onKeyDown : function(e) {
+        if(this.hasMod('disabled')) return;
+
+        var keyCode = e.keyCode;
+        if(keyCode === keyCodes.SPACE || keyCode === keyCodes.ENTER) {
+            this
+                .unbindFrom('control', 'keydown', this._onKeyDown)
+                .bindTo('control', 'keyup', this._onKeyUp)
+                ._updateChecked()
+                .setMod('pressed');
+        }
+    },
+
+    _onKeyUp : function(e) {
+        this
+            .unbindFrom('control', 'keyup', this._onKeyUp)
+            .bindTo('control', 'keydown', this._onKeyDown)
+            .delMod('pressed');
+
+        e.keyCode === keyCodes.SPACE && this._doAction();
+
+        this.emit('click');
+    },
+
+    _updateChecked : function() {
+        this.hasMod('togglable') &&
+            (this.hasMod('togglable', 'check')?
+                this.toggleMod('checked') :
+                this.setMod('checked'));
+
+        return this;
+    },
+
+    _doAction : functions.noop
+}, /** @lends button */{
+    live : function() {
+        this.liveBindTo('control', 'pointerpress', this.prototype._onPointerPress);
+        return this.__base.apply(this, arguments);
+    }
+}));
 
 });
 
@@ -6372,171 +6286,6 @@ provide(
      * @type Idle
      */
     new Idle());
-
-});
-
-/**
- * @module button
- */
-
-modules.define(
-    'button',
-    ['i-bem__dom', 'control', 'jquery', 'dom', 'functions', 'keyboard__codes'],
-    function(provide, BEMDOM, Control, $, dom, functions, keyCodes) {
-
-/**
- * @exports
- * @class button
- * @augments control
- * @bem
- */
-provide(BEMDOM.decl({ block : this.name, baseBlock : Control }, /** @lends button.prototype */{
-    beforeSetMod : {
-        'pressed' : {
-            'true' : function() {
-                return !this.hasMod('disabled') || this.hasMod('togglable');
-            }
-        },
-
-        'focused' : {
-            '' : function() {
-                return !this._isPointerPressInProgress;
-            }
-        }
-    },
-
-    onSetMod : {
-        'js' : {
-            'inited' : function() {
-                this.__base.apply(this, arguments);
-                this._isPointerPressInProgress = false;
-                this._focusedByPointer = false;
-            }
-        },
-
-        'disabled' : {
-            'true' : function() {
-                this.__base.apply(this, arguments);
-                this.hasMod('togglable') || this.delMod('pressed');
-                this.domElem.attr('aria-disabled', true);
-            },
-            '' : function() {
-                this.__base.apply(this, arguments);
-                this.domElem.removeAttr('aria-disabled');
-            }
-        },
-
-        'focused' : {
-            'true' : function() {
-                this.__base.apply(this, arguments);
-                this._focusedByPointer || this.setMod('focused-hard');
-            },
-
-            '' : function() {
-                this.__base.apply(this, arguments);
-                this.delMod('focused-hard');
-            }
-        }
-    },
-
-    /**
-     * Returns text of the button
-     * @returns {String}
-     */
-    getText : function() {
-        return this.elem('text').text();
-    },
-
-    /**
-     * Sets text to the button
-     * @param {String} text
-     * @returns {button} this
-     */
-    setText : function(text) {
-        this.elem('text').text(text || '');
-        return this;
-    },
-
-    _onFocus : function() {
-        if(this._isPointerPressInProgress) return;
-
-        this.__base.apply(this, arguments);
-        this.bindTo('control', 'keydown', this._onKeyDown);
-    },
-
-    _onBlur : function() {
-        this
-            .unbindFrom('control', 'keydown', this._onKeyDown)
-            .__base.apply(this, arguments);
-    },
-
-    _onPointerPress : function() {
-        if(!this.hasMod('disabled')) {
-            this._isPointerPressInProgress = true;
-            this
-                .bindToDoc('pointerrelease', this._onPointerRelease)
-                .setMod('pressed');
-        }
-    },
-
-    _onPointerRelease : function(e) {
-        this._isPointerPressInProgress = false;
-        this.unbindFromDoc('pointerrelease', this._onPointerRelease);
-
-        if(dom.contains(this.elem('control'), $(e.target))) {
-            this._focusedByPointer = true;
-            this._focus();
-            this._focusedByPointer = false;
-            this
-                ._updateChecked()
-                .emit('click');
-        } else {
-            this._blur();
-        }
-
-        this.delMod('pressed');
-    },
-
-    _onKeyDown : function(e) {
-        if(this.hasMod('disabled')) return;
-
-        var keyCode = e.keyCode;
-        if(keyCode === keyCodes.SPACE || keyCode === keyCodes.ENTER) {
-            this
-                .unbindFrom('control', 'keydown', this._onKeyDown)
-                .bindTo('control', 'keyup', this._onKeyUp)
-                ._updateChecked()
-                .setMod('pressed');
-        }
-    },
-
-    _onKeyUp : function(e) {
-        this
-            .unbindFrom('control', 'keyup', this._onKeyUp)
-            .bindTo('control', 'keydown', this._onKeyDown)
-            .delMod('pressed');
-
-        e.keyCode === keyCodes.SPACE && this._doAction();
-
-        this.emit('click');
-    },
-
-    _updateChecked : function() {
-        this.hasMod('togglable') &&
-            (this.hasMod('togglable', 'check')?
-                this.toggleMod('checked') :
-                this.setMod('checked'));
-
-        return this;
-    },
-
-    _doAction : functions.noop
-}, /** @lends button */{
-    live : function() {
-        this.liveBindTo('control', 'pointerpress', this.prototype._onPointerPress);
-        return this.__base.apply(this, arguments);
-    }
-}));
 
 });
 
