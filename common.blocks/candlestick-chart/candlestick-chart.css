@@ -1,9 +1,57 @@
 .candlestick-chart {
+    display: flex;
     width: 900px;
     height: 300px;
 }
 
+.candlestick-chart__axis_candle {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0 30px 0 0;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-grow: 0;
+}
+
+.candlestick-chart__axis_histo {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0 0 0 30px;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-grow: 0;
+}
+
+.candlestick-chart__label {
+    position: relative;
+    color: #8b90a1;
+    font-size: 11px;
+}
+
 .candlestick-chart__chart {
+    position: relative;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.candlestick-chart__levels {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.candlestick-chart__level {
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, .25);
+    content: '';
+}
+
+.candlestick-chart__items {
     position: relative;
     display: flex;
     height: 100%;
@@ -46,12 +94,15 @@
 .candlestick-chart__candle_type_grow:before {
     background: #37cf4f;
 }
+
 .candlestick-chart__candle_type_grow .candlestick-chart__candle-body {
     background: #37cf4f;
 }
+
 .candlestick-chart__candle_type_fall:before {
     background: #e36262;
 }
+
 .candlestick-chart__candle_type_fall .candlestick-chart__candle-body {
     background: #e36262;
 }
@@ -60,5 +111,5 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    background: rgba(255, 255, 255, .5);
+    background: rgba(255, 255, 255, .3);
 }

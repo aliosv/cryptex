@@ -18,46 +18,92 @@ block('candlestick-chart').content()(function() {
             Math.max.apply(Math, data.map(function(value) {
                 return value[5];
             }))
-        ];
+        ],
+        candleAxisStep = (candleRange[1] - candleRange[0]) / 4,
+        candleAxisValues = (new Array(4)).join('1').split('1').map(function(value, index) {
+            return candleRange[0] + candleAxisStep * index;
+        }).concat(candleRange[1]),
+        histoAxisStep = (histoRange[1] - histoRange[0]) / 4,
+        histoAxisValues = (new Array(4)).join('1').split('1').map(function(value, index) {
+            return histoRange[0] + histoAxisStep * index;
+        }).concat(histoRange[1]);
 
-    return {
-        elem : 'chart',
-        content : data.map(function(item) {
-            var candleHeight = (item[4] - item[1]) / (candleRange[1] - candleRange[0]),
-                candleBottom = (item[1] - candleRange[0]) / (candleRange[1] - candleRange[0]),
-                candleBodyHeight = Math.abs(item[3] - item[2]) / (item[4] - item[1]),
-                candleBodyBottom = (item[2] - item[1]) / (item[4] - item[1]);
-
-            return {
-                elem : 'item',
-                content : [
-                    {
-                        elem : 'candle',
-                        elemMods : { type : item[3] > item[2] ? 'grow' : 'fall' },
-                        attrs : {
-                            style : [
-                                'height:' + candleHeight * 100 + '%',
-                                'bottom:' + candleBottom * 100 + '%'
-                            ].join('; ')
-                        },
-                        content : {
-                            elem : 'candle-body',
+    return [
+        {
+            elem : 'axis',
+            mods : { candle : true },
+            content : candleAxisValues.map(function(value) {
+                return {
+                    elem : 'label',
+                    content : value.toFixed(2)
+                }
+            })
+        },
+        {
+            elem : 'chart',
+            content : [
+                {
+                    elem : 'levels',
+                    content : candleAxisValues.map(function(value, index, array) {
+                        return {
+                            elem : 'level',
                             attrs : {
-                                style : [
-                                    'height:' + candleBodyHeight * 100 + '%',
-                                    'body:' + candleBodyBottom * 100 + '%'
-                                ].join(';')
+                                style : 'bottom:' + index / (array.length - 1) * 100 + '%'
                             }
-                        }
-                    },
-                    {
-                        elem : 'histo',
-                        attrs : {
-                            style : 'height:' + ((item[5] - histoRange[0]) / (histoRange[1] - histoRange[0]) * 100) + '%'
-                        }
-                    }
-                ]
-            }
-        })
-    };
+                        };
+                    })
+                },
+                {
+                    elem : 'items',
+                    content : data.map(function(item) {
+                        var candleHeight = (item[4] - item[1]) / (candleRange[1] - candleRange[0]),
+                            candleBottom = (item[1] - candleRange[0]) / (candleRange[1] - candleRange[0]),
+                            candleBodyHeight = Math.abs(item[3] - item[2]) / (item[4] - item[1]),
+                            candleBodyBottom = (item[2] - item[1]) / (item[4] - item[1]);
+
+                        return {
+                            elem : 'item',
+                            content : [
+                                {
+                                    elem : 'candle',
+                                    elemMods : { type : item[3] > item[2] ? 'grow' : 'fall' },
+                                    attrs : {
+                                        style : [
+                                            'height:' + candleHeight * 100 + '%',
+                                            'bottom:' + candleBottom * 100 + '%'
+                                        ].join('; ')
+                                    },
+                                    content : {
+                                        elem : 'candle-body',
+                                        attrs : {
+                                            style : [
+                                                'height:' + candleBodyHeight * 100 + '%',
+                                                'body:' + candleBodyBottom * 100 + '%'
+                                            ].join(';')
+                                        }
+                                    }
+                                },
+                                {
+                                    elem : 'histo',
+                                    attrs : {
+                                        style : 'height:' + ((item[5] - histoRange[0]) / (histoRange[1] - histoRange[0]) * 100) + '%'
+                                    }
+                                }
+                            ]
+                        };
+                    })
+                }
+            ]
+        },
+        {
+            elem : 'axis',
+            mods : { histo : true },
+            content : histoAxisValues.map(function(value) {
+                return {
+                    elem : 'label',
+                    content : value.toFixed(2)
+                }
+            })
+        }
+    ];
 });
