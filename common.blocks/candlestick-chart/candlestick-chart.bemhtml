@@ -26,7 +26,10 @@ block('candlestick-chart').content()(function() {
         histoAxisStep = (histoRange[1] - histoRange[0]) / 4,
         histoAxisValues = (new Array(4)).join('1').split('1').map(function(value, index) {
             return histoRange[0] + histoAxisStep * index;
-        }).concat(histoRange[1]);
+        }).concat(histoRange[1]),
+        timeAxisValues = (new Array(17)).join('1').split('1').map(function(value, index) {
+            return data[Math.round(index * (data.length - 1) / 16)][0];
+        });
 
     return [
         {
@@ -97,6 +100,16 @@ block('candlestick-chart').content()(function() {
                                 }
                             ]
                         };
+                    })
+                },
+                {
+                    elem : 'axis',
+                    mods : { time : true },
+                    content : timeAxisValues.map(function(value) {
+                        return {
+                            elem : 'label',
+                            content : value
+                        }
                     })
                 }
             ]
