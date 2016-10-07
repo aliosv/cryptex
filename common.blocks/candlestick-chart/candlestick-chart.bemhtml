@@ -32,10 +32,16 @@ block('candlestick-chart').content()(function() {
         {
             elem : 'axis',
             mods : { candle : true },
-            content : candleAxisValues.map(function(value) {
+            content : candleAxisValues.map(function(value, index, array) {
                 return {
                     elem : 'label',
-                    content : value.toFixed(2)
+                    attrs : {
+                        style : 'bottom:' + index / (array.length - 1) * 100 + '%'
+                    },
+                    content : {
+                        elem : 'label-inner',
+                        content : value.toFixed(2)
+                    }
                 }
             })
         },
@@ -98,10 +104,16 @@ block('candlestick-chart').content()(function() {
         {
             elem : 'axis',
             mods : { histo : true },
-            content : histoAxisValues.map(function(value) {
+            content : histoAxisValues.map(function(value, index, array) {
                 return {
                     elem : 'label',
-                    content : value.toFixed(2)
+                    attrs : {
+                        style : 'bottom:' + index / (array.length - 1) * 100 + '%'
+                    },
+                    content : {
+                        elem : 'label-inner',
+                        content : value.toFixed(2)
+                    }
                 }
             })
         }
