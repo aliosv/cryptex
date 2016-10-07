@@ -72,6 +72,16 @@ block('candlestick-chart').content()(function() {
 
                         return {
                             elem : 'item',
+                            attrs : {
+                                title : [
+                                    'Time: ' + item[0],
+                                    'Min: ' + item[1],
+                                    'Max: ' + item[4],
+                                    'Open: ' + item[2],
+                                    'Close: ' + item[3],
+                                    'ХЗ что за столбец: ' + item[5]
+                                ].join('\n')
+                            },
                             content : [
                                 {
                                     elem : 'candle',
