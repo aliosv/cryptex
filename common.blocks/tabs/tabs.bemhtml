@@ -1,0 +1,46 @@
+block('tabs')(
+    js()(true),
+    content()(function() {
+        return [
+            {
+                elem : 'toggle',
+                content : [
+                    'BTC/USD 399.999',
+                    'BTC/RUR 30944',
+                    'BTC/EUR 367.68009',
+                    'LTC/BTC 0.0079',
+                    'LTC/USD 3.155',
+                    'LTC/RUR 242.7055',
+                    'LTC/EUR 2.931',
+                    'USD/RUR 74.62594',
+                    'EUR/USD 1.07715',
+                    'EUR/RUR 80.85697'
+                ].map(function(value, index) {
+                        return {
+                            elem : 'switch',
+                            elemMods : { active : index === 0 },
+                            content : [
+                                value.split(' ')[0],
+                                {
+                                    tag : 'span',
+                                    content : value.split(' ')[1]
+                                }
+                            ]
+                        };
+                    })
+            },
+            {
+                elem : 'tabs',
+                content : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(function(value, index) {
+                    return {
+                        elem : 'tab',
+                        elemMods : { active : index === 0 },
+                        content : {
+                            block : 'candlestick-chart'
+                        }
+                    };
+                })
+            }
+        ]
+    })
+);

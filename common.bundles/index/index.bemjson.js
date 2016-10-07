@@ -230,7 +230,7 @@
             mods : { theme : 'rates' },
             content : [
                 {
-                    block : 'candlestick-chart'
+                    block : 'tabs'
                 },
                 {
                     block : 'order-table',
