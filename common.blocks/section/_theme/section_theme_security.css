@@ -13,18 +13,26 @@
 
 .section_theme_security .section__image {
     position: absolute;
-    bottom: -80px;
-    right: -60px;
-    width: 660px;
+    bottom: -92px;
+    left: 42%;
+    width: 742px;
     height: 476px;
     background: url(section_theme_security.png) 0 0 no-repeat;
     transition: all .3s ease-out;
 }
 
+.section_theme_security .section__image:before,
+.section_theme_security .section__image:after {
+    position: absolute;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    content: '';
+}
+
 .section_theme_security .section__info {
     position: relative;
     top: 150px;
-    width: 371px;
+    width: 35%;
     color: #ebebee;
     transition: all .3s ease-out;
 }
@@ -40,10 +48,10 @@
 
     .section_theme_security .section__image {
         top: auto;
-        bottom: -52px;
-        left: 122px;
-        width: 442px;
-        height: 320px;
+        bottom: -48px;
+        left: 68px;
+        width: 490px;
+        height: 314px;
         background-size: 100% auto;
     }
 
