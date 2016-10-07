@@ -1,7 +1,6 @@
 .candlestick-chart {
     display: flex;
-    margin: 0 0 50px;
-    padding: 20px 0;
+    padding: 10px 0 30px;
     width: 100%;
     height: 300px;
     flex-wrap: wrap;

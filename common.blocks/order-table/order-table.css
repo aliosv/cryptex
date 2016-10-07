@@ -2,7 +2,7 @@
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
-    padding: 54px 0 0;
+    padding: 72px 0 0;
 }
 
 .order-table__inner {
@@ -53,7 +53,7 @@
 
 .order-table__table th span {
     position: absolute;
-    top: 24px;
+    top: 42px;
     padding-right: 0 !important;
     padding-left: 0 !important;
 }
