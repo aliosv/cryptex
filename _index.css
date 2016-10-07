@@ -1062,6 +1062,10 @@ html {
         height: 100%;
     }
     
+    .candlestick-chart__item:hover {
+        background: rgba(255, 255, 255, .1);
+    }
+    
     .candlestick-chart__candle {
         position: absolute;
         width: 100%;
