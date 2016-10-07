@@ -1,0 +1,82 @@
+.button_theme_simple {
+    border-radius: 3px;
+}
+
+.button_theme_simple.button_color_grey {
+    border: 1px solid #8b90a1;
+    background: #8b90a1;
+    color: #fefefe;
+}
+
+.button_theme_simple.button_color_grey.button_transparent {
+    color: #8b90a1;
+}
+
+.button_theme_simple.button_color_grey.button_hovered {
+    border-color: #595E6E;
+    background: #595E6E;
+}
+
+.button_theme_simple.button_color_grey.button_focused {
+    box-shadow: 0 0 10px #8b90a1;
+}
+
+.button_theme_simple.button_color_green {
+    border: 1px solid #37cf4f;
+    background: #37cf4f;
+    color: #131825;
+}
+
+.button_theme_simple.button_color_green.button_transparent {
+    color: #37cf4f;
+}
+
+.button_theme_simple.button_color_green.button_hovered {
+    border-color: #51f06a;
+    background: #51f06a;
+}
+
+.button_theme_simple.button_color_green.button_focused {
+    box-shadow: 0 0 10px #37cf4f;
+}
+
+.button_theme_simple.button_color_blue {
+    border: 1px solid #2a4f9a;
+    background: #2a4f9a;
+    color: #dddfe5;
+}
+
+.button_theme_simple.button_color_blue.button_transparent {
+    color: #2a4f9a;
+}
+
+.button_theme_simple.button_color_blue.button_hovered {
+    border-color: #2a4f9a;
+    background: #1175c3;
+}
+
+.button_theme_simple.button_color_blue.button_focused {
+    box-shadow: 0 0 10px #2a4f9a;
+}
+
+.button_theme_simple.button_transparent {
+    background-color: transparent !important;
+}
+
+.button_theme_simple.button_size_s {
+    padding: 7px 24px;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.button_theme_simple.button_size_m {
+    padding: 7px 46px;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.button_theme_simple.button_size_l {
+    padding: 10px 34px;
+    font-size: 16px;
+    line-height: 21px;
+}

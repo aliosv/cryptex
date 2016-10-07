@@ -1,5 +1,6 @@
 .auth-form {
     display: flex;
+    align-items: center;
 }
 
 .auth-form .auth-form__password, .auth-form .auth-form__sign-in {
@@ -12,7 +13,4 @@
 
 .auth-form .input {
     width: 160px;
-    height: 31px;
-    border-radius: 3px;
-    border: solid 1px rgba(235, 235, 238, 0.4);
 }

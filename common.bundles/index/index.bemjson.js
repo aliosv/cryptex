@@ -50,6 +50,7 @@
                                                         elem : 'item',
                                                         content : {
                                                             block : 'button',
+                                                            mods : { color : 'grey', size : 'l', theme : 'simple', transparent : true },
                                                             text : 'Sign In'
                                                         }
                                                     },
@@ -57,6 +58,7 @@
                                                         elem : 'item',
                                                         content : {
                                                             block : 'button',
+                                                            mods : { color : 'grey', size : 'l', theme : 'simple', transparent : true },
                                                             text : 'Sign Up'
                                                         }
                                                     }
@@ -113,25 +115,25 @@
                                     content : [
                                         {
                                             block : 'input',
-                                            mods : { size : 'm', theme : 'islands' },
+                                            mods : { color : 'grey', size : 's', theme : 'simple', transparent : true },
                                             mix : { block : 'auth-form', elem : 'login' },
                                             placeholder : 'ID'
                                         },
                                         {
                                             block : 'input',
-                                            mods : { size : 'm', theme : 'islands' },
+                                            mods : { color : 'grey', size : 's', theme : 'simple', transparent : true },
                                             mix : { block : 'auth-form', elem : 'password' },
                                             placeholder : 'Password'
                                         },
                                         {
                                             block : 'button',
-                                            mods : { size : 'm', theme : 'islands' },
+                                            mods : { color : 'green', size : 's', theme : 'simple', transparent : true },
                                             mix : { block : 'auth-form', elem : 'sign-in' },
                                             text : 'Sign In'
                                         },
                                         {
                                             block : 'button',
-                                            mods : { size : 'm', theme : 'islands' },
+                                            mods : { color : 'blue', size : 's', theme : 'simple', transparent : true },
                                             mix : { block : 'auth-form', elem : 'sign-up' },
                                             text : 'Sign Up'
                                         }
@@ -153,12 +155,12 @@
                     content : [
                         {
                             block : 'button',
-                            mods : { size : 'm', theme : 'islands', view : 'pseudo' },
+                            mods : { color : 'blue', size : 'm', theme : 'simple' },
                             text : 'View demo'
                         },
                         {
                             block : 'button',
-                            mods : { size : 'm', theme : 'islands', view : 'pseudo' },
+                            mods : { color : 'green', size : 'm', theme : 'simple' },
                             text : 'Sign up'
                         }
                     ]

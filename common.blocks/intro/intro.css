@@ -10,26 +10,8 @@
     text-align: center;
 }
 
-.intro__buttons .button {
-    width: 148px;
-    height: 37px;
-    border-radius: 3px;
-    box-shadow: 0 2px 15px 0 rgba(19, 24, 36, 0.2);
-    line-height: 37px;
-}
-
 .intro__buttons .button + .button {
     margin-left: 27px;
-}
-
-.intro__buttons .button:first-child {
-    background-color: #1175c3;
-    color: #dddfe5;
-}
-
-.intro__buttons .button:last-child {
-    background-color: #37cf4f;
-    color: #131825;
 }
 
 .intro__about {

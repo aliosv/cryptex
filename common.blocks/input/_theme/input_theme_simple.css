@@ -1,0 +1,36 @@
+.input_theme_simple .input__box {
+    border-radius: 3px;
+}
+
+.input_theme_simple.input_color_grey .input__box {
+    border: 1px solid #8b90a1;
+    background: #8b90a1;
+}
+
+.input_theme_simple.input_color_grey .input__control {
+    color: #fefefe;
+}
+
+.input_theme_simple.input_color_grey.input_transparent .input__control {
+    color: #8b90a1;
+}
+
+.input_theme_simple.input_color_grey.input_hovered .input__box {
+    border-color: #595E6E;
+    background: #595E6E;
+}
+
+.input_theme_simple.input_color_grey.input_focused .input__box {
+    box-shadow: 0 0 5px 1px #595E6E;
+}
+
+.input_theme_simple.input_transparent .input__box,
+.input_theme_simple.input_transparent .input__control {
+    background-color: transparent !important;
+}
+
+.input_theme_simple.input_size_s .input__control {
+    padding: 7px 24px;
+    font-size: 12px;
+    line-height: 15px;
+}
