@@ -1,15 +1,15 @@
 .rates {
     display: flex;
     color: #ebebee;
+    font-size: 14px;
     justify-content: space-between;
 }
 
 .rates__value {
     font-weight: bold;
-    font-size: 14px;
 }
 
 .rates__name {
-    font-size: 12px;
+    font-size: 0.85em;
     opacity: 0.6;
 }

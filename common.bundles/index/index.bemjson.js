@@ -21,7 +21,13 @@
                         content : [
                             {
                                 block : 'menu',
-                                mix : { block : 'header', elem : 'menu' }
+                                mix : { block : 'header', elem : 'menu' },
+                                content : [
+                                    { elem : 'toggle' },
+                                    {
+                                        elem : 'body'
+                                    }
+                                ]
                             },
                             {
                                 block : 'logo',

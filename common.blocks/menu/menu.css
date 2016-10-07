@@ -3,5 +3,7 @@
 .menu__body {}
 
 .menu__toggle {
-
+    width: 28px;
+    height: 21px;
+    background: url(menu__toggle.png);
 }
