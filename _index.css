@@ -1331,14 +1331,15 @@ html {
     .section_theme_payment .section__inner {
         display: -ms-flexbox;
         display: flex;
-        padding: 0 136px 0 179px;
+        padding: 0 10% 0 13%;
         transition: all .3s ease-out;
+        -ms-flex-align: center;
+            align-items: center;
         -ms-flex-pack: justify;
             justify-content: space-between;
     }
     
     .section_theme_payment .section__info {
-        margin-right: 7%;
         width: 310px;
         color: #131825;
     }
@@ -1349,20 +1350,32 @@ html {
             flex-grow: 1;
     }
     
-    .section_theme_payment .logos-grid__row {
-        transition: all .3s ease-out;
+    .section_theme_payment .logos-grid__item {
+        margin: 17px 0;
+        width: 25%;
+        text-align: center;
     }
     
     @media all and (max-width: 1000px) {
         .section_theme_payment {
-            padding-top: 91px;
-            padding-bottom: 75px;
+            padding: 91px 0 75px 0;
         }
     
         .section_theme_payment .section__inner {
             -ms-flex-direction: column;
                 flex-direction: column;
-            padding: 0 63px 0 59px;
+            padding: 0 28px 0 65px;
+            -ms-flex-align: stretch;
+                align-items: stretch;
+        }
+    
+        .section_theme_payment .section__header {
+            font-size: 30px;
+            line-height: 40px;
+        }
+    
+        .section_theme_payment .section__info {
+            width: 100%;
         }
     
         .section_theme_payment .logos-grid {
@@ -1372,9 +1385,9 @@ html {
             height: 305px;
         }
     
-        .section_theme_payment .logos-grid__row {
-            -ms-flex-direction: column;
-                flex-direction: column;
+        .section_theme_payment .logos-grid__item {
+            margin: 0;
+            width: 50%;
         }
     }
     
@@ -1386,15 +1399,8 @@ html {
         display: flex;
         -ms-flex-pack: justify;
             justify-content: space-between;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    }
-    
-    .logos-grid__row {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
         -ms-flex-align: center;
             align-items: center;
     }
