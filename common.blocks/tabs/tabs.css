@@ -42,8 +42,8 @@
     color: #dddfe5;
 }
 
-
-.tabs__tabs {}
+.tabs__tabs {
+}
 
 .tabs__tab {
     position: absolute;
@@ -60,4 +60,30 @@
     width: auto;
     height: auto;
     opacity: 1;
+}
+
+@media all and (max-width: 1000px) {
+    .tabs .tabs__toggle {
+        overflow: hidden;
+        overflow-x: auto;
+        border-bottom: none;
+    }
+
+    .tabs .tabs__tabs {
+        overflow: auto;
+    }
+
+    .tabs .tabs__tab {
+        margin-bottom: 10px;
+        width: 1000px;
+    }
+
+    .tabs__toggle::-webkit-scrollbar, .tabs__tabs::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .tabs__toggle::-webkit-scrollbar-thumb, .tabs__tabs::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background: #444854;
+    }
 }

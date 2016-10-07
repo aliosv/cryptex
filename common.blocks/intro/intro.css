@@ -47,3 +47,9 @@
     line-height: 1.57;
     opacity: 0.6;
 }
+
+@media all and (max-width: 1000px) {
+    .intro .intro__item + .intro__item {
+        margin-top: 45px;
+    }
+}
