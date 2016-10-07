@@ -489,70 +489,60 @@
                     block : 'logos-grid',
                     content : [
                         {
-                            elem : 'row',
-                            content : [
-                                {
-                                    elem : 'item',
-                                    content : {
-                                        block : 'icon',
-                                        mods : { payment : 'visa' }
-                                    }
-                                },
-                                {
-                                    elem : 'item',
-                                    content : {
-                                        block : 'icon',
-                                        mods : { payment : 'wire-transfer' }
-                                    }
-                                },
-                                {
-                                    elem : 'item',
-                                    content : {
-                                        block : 'icon',
-                                        mods : { payment : 'ok-pay' }
-                                    }
-                                },
-                                {
-                                    elem : 'item',
-                                    content : {
-                                        block : 'icon',
-                                        mods : { payment : 'adv-cash' }
-                                    }
-                                }
-                            ]
+                            elem : 'item',
+                            content : {
+                                block : 'icon',
+                                mods : { payment : 'visa' }
+                            }
                         },
                         {
-                            elem : 'row',
-                            content : [
-                                {
-                                    elem : 'item',
-                                    content : {
-                                        block : 'icon',
-                                        mods : { payment : 'master-card' }
-                                    }
-                                },
-                                {
-                                    elem : 'item',
-                                    content : {
-                                        block : 'icon',
-                                        mods : { payment : 'perfect-money' }
-                                    }
-                                },
-                                {
-                                    elem : 'item',
-                                    content : {
-                                        block : 'icon',
-                                        mods : { payment : 'payeer' }
-                                    }
-                                },
-                                {
-                                    elem : 'item',
-                                    content : {
-                                        block : 'icon',
-                                        mods : { payment : 'web-money' }
-                                    }
-                                }
-                            ]
+                            elem : 'item',
+                            content : {
+                                block : 'icon',
+                                mods : { payment : 'wire-transfer' }
+                            }
+                        },
+                        {
+                            elem : 'item',
+                            content : {
+                                block : 'icon',
+                                mods : { payment : 'ok-pay' }
+                            }
+                        },
+                        {
+                            elem : 'item',
+                            content : {
+                                block : 'icon',
+                                mods : { payment : 'adv-cash' }
+                            }
+                        },
+                        {
+                            elem : 'item',
+                            content : {
+                                block : 'icon',
+                                mods : { payment : 'master-card' }
+                            }
+                        },
+                        {
+                            elem : 'item',
+                            content : {
+                                block : 'icon',
+                                mods : { payment : 'perfect-money' }
+                            }
+                        },
+                        {
+                            elem : 'item',
+                            content : {
+                                block : 'icon',
+                                mods : { payment : 'payeer' }
+                            }
+                        },
+                        {
+                            elem : 'item',
+                            content : {
+                                block : 'icon',
+                                mods : { payment : 'web-money' }
+                            }
                         }
                     ]
                 }
