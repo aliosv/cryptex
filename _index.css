@@ -922,7 +922,7 @@ html {
     .section_theme_rates .section__inner {
         display: -ms-flexbox;
         display: flex;
-        padding: 0 170px 0;
+        padding: 0 12.4% 0;
         transition: all .3s ease-out;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
@@ -931,7 +931,7 @@ html {
     }
     
     .section_theme_rates .order-table {
-        width: 322px;
+        width: 31.3%;
         height: 405px;
     }
     
@@ -1064,9 +1064,9 @@ html {
     }
     
     .candlestick-chart__axis_time {
-        margin: 10px 0 0;
         display: -ms-flexbox;
         display: flex;
+        margin: 10px 0 0;
         width: 100%;
         -ms-flex-negative: 0;
             flex-shrink: 0;
@@ -1110,8 +1110,12 @@ html {
         right: 0;
         left: 0;
         height: 1px;
-        background: rgba(255, 255, 255, .25);
+        background: rgba(248, 248, 248, .15);
         content: '';
+    }
+    
+    .candlestick-chart__level:first-child {
+        background: #232939;
     }
     
     .candlestick-chart__items {
@@ -1130,11 +1134,12 @@ html {
     }
     
     .candlestick-chart__item:hover {
-        background: rgba(255, 255, 255, .1);
+        background: rgba(255, 255, 255, .5);
     }
     
     .candlestick-chart__candle {
         position: absolute;
+        z-index: 1;
         width: 100%;
     }
     
