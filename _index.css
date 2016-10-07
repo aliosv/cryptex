@@ -970,6 +970,8 @@ html {
         padding: 20px 0;
         width: 100%;
         height: 300px;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
     }
     
     .candlestick-chart__axis_candle {
@@ -992,6 +994,21 @@ html {
     
     .candlestick-chart__axis_histo .candlestick-chart__label {
         left: 30px;
+    }
+    
+    .candlestick-chart__axis_time {
+        margin: 10px 0 0;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        -ms-flex-negative: 0;
+            flex-shrink: 0;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    }
+    
+    .candlestick-chart__axis_time .candlestick-chart__label {
+        position: static;
     }
     
     .candlestick-chart__label {
