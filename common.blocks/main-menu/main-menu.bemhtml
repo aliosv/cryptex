@@ -1,0 +1,1 @@
+block('main-menu').js()(true);

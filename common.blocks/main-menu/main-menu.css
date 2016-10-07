@@ -1,0 +1,54 @@
+.main-menu {}
+
+.main-menu_opened .main-menu__body {
+    right: auto;
+    left: 0;
+}
+
+.main-menu__body {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -238px;
+    z-index: 9999;
+    width: 238px;
+    background-image: linear-gradient(to left, #3f4860, #242c42);
+    transition: all .3s ease-out;
+}
+
+.main-menu__toggle {
+    width: 28px;
+    height: 21px;
+    background: url(main-menu__toggle.png) 50% 50% no-repeat;
+    cursor: pointer;
+}
+
+.main-menu__close {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: none;
+    width: 72px;
+    height: 72px;
+    background: url(main-menu__close.png) 50% 50% no-repeat;
+    cursor: pointer;
+}
+
+.main-menu_opened .main-menu__close {
+    display: block;
+}
+
+.main-menu__content {
+    position: absolute;
+    top: 140px;
+    right: 34px;
+    left: 34px;
+}
+
+.main-menu__item {
+    display: block;
+}
+
+.main-menu__item + .main-menu__item {
+    margin-top: 43px;
+}

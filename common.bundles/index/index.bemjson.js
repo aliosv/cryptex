@@ -20,12 +20,48 @@
                         elem : 'inner',
                         content : [
                             {
-                                block : 'menu',
+                                block : 'main-menu',
                                 mix : { block : 'header', elem : 'menu' },
                                 content : [
                                     { elem : 'toggle' },
                                     {
-                                        elem : 'body'
+                                        elem : 'body',
+                                        content : [
+                                            { elem : 'close' },
+                                            {
+                                                elem : 'content',
+                                                content : [
+                                                    {
+                                                        elem : 'item',
+                                                        content : {
+                                                            block : 'link',
+                                                            content : 'Trade'
+                                                        }
+                                                    },
+                                                    {
+                                                        elem : 'item',
+                                                        content : {
+                                                            block : 'link',
+                                                            content : 'Support'
+                                                        }
+                                                    },
+                                                    {
+                                                        elem : 'item',
+                                                        content : {
+                                                            block : 'button',
+                                                            text : 'Sign In'
+                                                        }
+                                                    },
+                                                    {
+                                                        elem : 'item',
+                                                        content : {
+                                                            block : 'button',
+                                                            text : 'Sign Up'
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
                                     }
                                 ]
                             },
