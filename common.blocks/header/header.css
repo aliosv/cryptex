@@ -44,7 +44,7 @@
     float: right;
 }
 
-@media all and (max-width: 1366px) {
+@media all and (max-width: 1000px) {
     .header {
         display: block;
         margin-bottom: 38px;

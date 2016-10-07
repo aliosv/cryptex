@@ -1,4 +1,11 @@
 .page {
     font-family: 'Open Sans';
     line-height: normal;
+    min-width: 1000px;
+}
+
+@media all and (max-width: 1000px) {
+    .page {
+        min-width: 375px;
+    }
 }

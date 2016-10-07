@@ -56,7 +56,7 @@
     line-height: normal;
 }
 
-@media all and (max-width: 1366px) {
+@media all and (max-width: 1000px) {
     .section_theme_footer {
         height: 547px;
     }

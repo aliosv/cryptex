@@ -229,6 +229,9 @@
             mods : { theme : 'rates' },
             content : [
                 {
+                    block : 'candlestick-chart'
+                },
+                {
                     block : 'order-table',
                     name : 'Sell orders',
                     total : 'Total: 10925.44 BTC',

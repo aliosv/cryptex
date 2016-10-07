@@ -7,6 +7,7 @@
     display: flex;
     padding: 0 170px 0;
     transition: all .3s ease-out;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -15,7 +16,7 @@
     height: 405px;
 }
 
-@media all and (max-width: 1366px) {
+@media all and (max-width: 1000px) {
     .section_theme_rates {
         padding: 37px 0 57px;
     }

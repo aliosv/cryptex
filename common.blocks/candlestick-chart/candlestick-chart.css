@@ -1,0 +1,64 @@
+.candlestick-chart {
+    width: 900px;
+    height: 300px;
+}
+
+.candlestick-chart__chart {
+    position: relative;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.candlestick-chart__item {
+    position: relative;
+    width: 7px;
+    height: 100%;
+}
+
+.candlestick-chart__candle {
+    position: absolute;
+    width: 100%;
+}
+
+.candlestick-chart__candle:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 1px;
+    height: 100%;
+    content: '';
+}
+
+.candlestick-chart__candle-body {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 100%;
+}
+
+.candlestick-chart__candle_type_grow:before {
+    background: #37cf4f;
+}
+.candlestick-chart__candle_type_grow .candlestick-chart__candle-body {
+    background: #37cf4f;
+}
+.candlestick-chart__candle_type_fall:before {
+    background: #e36262;
+}
+.candlestick-chart__candle_type_fall .candlestick-chart__candle-body {
+    background: #e36262;
+}
+
+.candlestick-chart__histo {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, .5);
+}

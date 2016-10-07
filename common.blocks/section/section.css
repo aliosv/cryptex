@@ -1,10 +1,12 @@
 .section {
+    overflow-x: hidden;
 }
 
 .section__inner {
     box-sizing: border-box;
     margin: auto;
-    width: 1366px;
+    min-width: 1000px;
+    max-width: 1366px;
 }
 
 .section__info {
@@ -29,8 +31,10 @@
     opacity: 0.6;
 }
 
-@media all and (max-width: 1366px) {
+@media all and (max-width: 1000px) {
     .section__inner {
+        min-width: 0;
+        max-width: none;
         width: 375px;
     }
 }
