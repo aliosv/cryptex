@@ -1,12 +1,17 @@
-.page {
-    overflow-x: hidden;
-    min-width: 1000px;
+.page
+{
     font-family: 'Open Sans';
     line-height: normal;
+
+    overflow-x: hidden;
+
+    min-width: 1000px;
 }
 
-@media all and (max-width: 1000px) {
-    .page {
+@media all and (max-width: 1000px)
+{
+    .page
+    {
         min-width: 375px;
     }
 }

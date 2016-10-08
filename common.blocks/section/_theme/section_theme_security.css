@@ -1,62 +1,87 @@
-.section_theme_security {
+.section_theme_security
+{
     height: 445px;
+
+    transition: all 0.3s ease-out;
+
     background: radial-gradient(circle at 50% 52%, #2b437a, #24315c);
-    transition: all .3s ease-out;
 }
 
-.section_theme_security .section__inner {
+.section_theme_security .section__inner
+{
     position: relative;
-    padding: 0 10% 0 13%;
+
     height: 100%;
-    transition: all .3s ease-out;
+    padding: 0 10% 0 13%;
+
+    transition: all 0.3s ease-out;
 }
 
-.section_theme_security .section__image {
+.section_theme_security .section__image
+{
     position: absolute;
     bottom: -92px;
     left: 42%;
+
     width: 742px;
     height: 476px;
+
+    transition: all 0.3s ease-out;
+
     background: url(section_theme_security.png) 0 0 no-repeat;
-    transition: all .3s ease-out;
 }
 
 .section_theme_security .section__image:before,
-.section_theme_security .section__image:after {
+.section_theme_security .section__image:after
+{
     position: absolute;
-    background-position: 0 0;
-    background-repeat: no-repeat;
+
     content: '';
+
+    background-repeat: no-repeat;
+    background-position: 0 0;
 }
 
-.section_theme_security .section__info {
+.section_theme_security .section__info
+{
     position: relative;
     top: 150px;
+
     width: 35%;
+
+    transition: all 0.3s ease-out;
+
     color: #ebebee;
-    transition: all .3s ease-out;
 }
 
-@media all and (max-width: 1000px) {
-    .section_theme_security {
+@media all and (max-width: 1000px)
+{
+    .section_theme_security
+    {
         height: 475px;
     }
 
-    .section_theme_security .section__inner {
+    .section_theme_security .section__inner
+    {
         padding: 0 35px 0 64px;
     }
 
-    .section_theme_security .section__image {
+    .section_theme_security .section__image
+    {
         top: auto;
         bottom: -48px;
         left: 68px;
+
         width: 490px;
         height: 314px;
+
         background-size: 100% auto;
     }
 
-    .section_theme_security .section__info {
+    .section_theme_security .section__info
+    {
         top: 36px;
+
         width: 275px;
     }
 }

@@ -1,82 +1,111 @@
-.order-table {
+.order-table
+{
     position: relative;
+
     overflow: hidden;
+
     box-sizing: border-box;
     padding: 72px 0 0;
 }
 
-.order-table__inner {
+.order-table__inner
+{
     overflow: hidden;
     overflow-y: auto;
+
     width: 100%;
     height: 100%;
 }
 
-.order-table__inner::-webkit-scrollbar {
+.order-table__inner::-webkit-scrollbar
+{
     width: 8px;
 }
 
-.order-table__inner::-webkit-scrollbar-thumb {
+.order-table__inner::-webkit-scrollbar-thumb
+{
     border-radius: 4px;
     background: #444854;
 }
 
-.order-table__table {
+.order-table__table
+{
     width: 100%;
     height: 100%;
+
     border-collapse: collapse;
 }
 
-.order-table__caption {
+.order-table__caption
+{
+    font-size: 18px;
+    line-height: 24px;
+
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
+
     padding: 0 0 0 15px;
-    color: #1175c3;
+
     text-align: left;
-    font-size: 18px;
-    line-height: 24px;
+
+    color: #1175c3;
 }
 
-.order-table__caption span {
-    float: right;
-    color: #8b90a1;
+.order-table__caption span
+{
     font-size: 14px;
+
+    float: right;
+
+    color: #8b90a1;
 }
 
-.order-table__table th {
+.order-table__table th
+{
+    font-size: 11px;
+
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    font-size: 11px;
 }
 
-.order-table__table th span {
+.order-table__table th span
+{
     position: absolute;
     top: 42px;
+
     padding-right: 0 !important;
     padding-left: 0 !important;
 }
 
-.order-table__table td {
+.order-table__table td
+{
     font-size: 12px;
 }
 
-.order-table__table tr:nth-child(even) td {
+.order-table__table tr:nth-child(even) td
+{
     background-color: rgba(180, 185, 198, 0.1);
 }
 
-.order-table__table td, .order-table__table th, .order-table__table th span {
-    padding: 8px 20px;
-    color: #b4b9c6;
-    text-align: left;
+.order-table__table td, .order-table__table th, .order-table__table th span
+{
     line-height: 14px;
+
+    padding: 8px 20px;
+
+    text-align: left;
+
+    color: #b4b9c6;
 }
 
-.order-table__table .sell {
+.order-table__table .sell
+{
     color: #ef3c37;
 }
 
-.order-table__table .buy {
+.order-table__table .buy
+{
     color: #37cf4f;
 }

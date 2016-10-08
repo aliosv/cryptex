@@ -1,16 +1,21 @@
-.auth-form {
+.auth-form
+{
     display: flex;
+
     align-items: center;
 }
 
-.auth-form .auth-form__password, .auth-form .auth-form__sign-in {
+.auth-form .auth-form__password, .auth-form .auth-form__sign-in
+{
     margin-left: 10px;
 }
 
-.auth-form .auth-form__sign-up {
+.auth-form .auth-form__sign-up
+{
     margin-left: 6%;
 }
 
-.auth-form .input {
+.auth-form .input
+{
     width: 23%;
 }

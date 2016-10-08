@@ -1,82 +1,102 @@
-.button_theme_simple {
+.button_theme_simple
+{
     border-radius: 3px;
 }
 
-.button_theme_simple.button_color_grey {
+.button_theme_simple.button_color_grey
+{
+    color: #fefefe;
     border: 1px solid #8b90a1;
     background: #8b90a1;
-    color: #fefefe;
 }
 
-.button_theme_simple.button_color_grey.button_transparent {
+.button_theme_simple.button_color_grey.button_transparent
+{
     color: #8b90a1;
 }
 
-.button_theme_simple.button_color_grey.button_hovered {
-    border-color: #595E6E;
-    background: #595E6E;
+.button_theme_simple.button_color_grey.button_hovered
+{
+    border-color: #595e6e;
+    background: #595e6e;
 }
 
-.button_theme_simple.button_color_grey.button_focused {
+.button_theme_simple.button_color_grey.button_focused
+{
     box-shadow: 0 0 10px #8b90a1;
 }
 
-.button_theme_simple.button_color_green {
+.button_theme_simple.button_color_green
+{
+    color: #131825;
     border: 1px solid #37cf4f;
     background: #37cf4f;
-    color: #131825;
 }
 
-.button_theme_simple.button_color_green.button_transparent {
+.button_theme_simple.button_color_green.button_transparent
+{
     color: #37cf4f;
 }
 
-.button_theme_simple.button_color_green.button_hovered {
+.button_theme_simple.button_color_green.button_hovered
+{
     border-color: #51f06a;
     background: #51f06a;
 }
 
-.button_theme_simple.button_color_green.button_focused {
+.button_theme_simple.button_color_green.button_focused
+{
     box-shadow: 0 0 10px #37cf4f;
 }
 
-.button_theme_simple.button_color_blue {
+.button_theme_simple.button_color_blue
+{
+    color: #dddfe5;
     border: 1px solid #2a4f9a;
     background: #2a4f9a;
-    color: #dddfe5;
 }
 
-.button_theme_simple.button_color_blue.button_transparent {
+.button_theme_simple.button_color_blue.button_transparent
+{
     color: #2a4f9a;
 }
 
-.button_theme_simple.button_color_blue.button_hovered {
+.button_theme_simple.button_color_blue.button_hovered
+{
     border-color: #2a4f9a;
     background: #1175c3;
 }
 
-.button_theme_simple.button_color_blue.button_focused {
+.button_theme_simple.button_color_blue.button_focused
+{
     box-shadow: 0 0 10px #2a4f9a;
 }
 
-.button_theme_simple.button_transparent {
+.button_theme_simple.button_transparent
+{
     background-color: transparent !important;
 }
 
-.button_theme_simple.button_size_s {
-    padding: 7px 24px;
+.button_theme_simple.button_size_s
+{
     font-size: 12px;
     line-height: 15px;
+
+    padding: 7px 24px;
 }
 
-.button_theme_simple.button_size_m {
+.button_theme_simple.button_size_m
+{
+    font-size: 16px;
+    line-height: 21px;
+
     padding: 7px 46px;
-    font-size: 16px;
-    line-height: 21px;
 }
 
-.button_theme_simple.button_size_l {
-    padding: 10px 34px;
+.button_theme_simple.button_size_l
+{
     font-size: 16px;
     line-height: 21px;
+
+    padding: 10px 34px;
 }

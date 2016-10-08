@@ -1,5 +1,7 @@
-.logo {
+.logo
+{
     width: 114px;
     height: 23px;
+
     background: url(logo.png);
 }

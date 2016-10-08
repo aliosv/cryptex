@@ -1,89 +1,118 @@
-.icon_type_commissions {
+.icon_type_commissions
+{
     background-image: url(icon_type_commissions.svg);
 }
 
-.icon_type_interface {
+.icon_type_interface
+{
     background-image: url(icon_type_interface.svg);
 }
 
-.icon_type_licence {
+.icon_type_licence
+{
     background-image: url(icon_type_licence.svg);
 }
 
-.icon_type_phone {
+.icon_type_phone
+{
     width: 23px;
     height: 36px;
+
     background-image: url(icon_type_phone.svg);
 }
 
-.icon_type_security {
+.icon_type_security
+{
     width: 23px;
     height: 32px;
+
     background-image: url(icon_type_security.svg);
 }
 
-.icon_type_wallet {
+.icon_type_wallet
+{
     width: 31px;
     height: 26px;
+
     background-image: url(icon_type_wallet.svg);
 }
 
-.icon_payment_adv-cash {
+.icon_payment_adv-cash
+{
     width: 121px;
     height: 34px;
+
     background-image: url(icon_payment_adv-cash.png);
 }
 
-.icon_payment_master-card {
+.icon_payment_master-card
+{
     width: 65px;
     height: 39px;
+
     background-image: url(icon_payment_master-card.png);
 }
 
-.icon_payment_ok-pay {
+.icon_payment_ok-pay
+{
     width: 113px;
     height: 37px;
+
     background-image: url(icon_payment_ok-pay.png);
 }
 
-.icon_payment_payeer {
+.icon_payment_payeer
+{
     width: 94px;
     height: 32px;
+
     background-image: url(icon_payment_payeer.png);
 }
 
-.icon_payment_perfect-money {
+.icon_payment_perfect-money
+{
     width: 114px;
     height: 34px;
+
     background-image: url(icon_payment_perfect-money.png);
 }
 
-.icon_payment_visa {
+.icon_payment_visa
+{
     width: 75px;
     height: 24px;
+
     background-image: url(icon_payment_visa.png);
 }
 
-.icon_payment_web-money {
+.icon_payment_web-money
+{
     width: 121px;
     height: 32px;
+
     background-image: url(icon_payment_web-money.png);
 }
 
-.icon_payment_wire-transfer {
+.icon_payment_wire-transfer
+{
     width: 86px;
     height: 44px;
+
     background-image: url(icon_payment_wire-transfer.png);
 }
 
-.icon_store_app-store {
+.icon_store_app-store
+{
     width: 146px;
     height: 43px;
+
     background-image: url(icon_store_app-store.png);
 }
 
-.icon_store_google-play {
+.icon_store_google-play
+{
     width: 144px;
     height: 43px;
+
     background-image: url(icon_store_google-play.png);
 }

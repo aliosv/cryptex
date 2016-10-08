@@ -1,15 +1,22 @@
-.rates {
-    display: flex;
-    color: #ebebee;
+.rates
+{
     font-size: 14px;
+
+    display: flex;
+
+    color: #ebebee;
+
     justify-content: space-between;
 }
 
-.rates__value {
+.rates__value
+{
     font-weight: bold;
 }
 
-.rates__name {
+.rates__name
+{
     font-size: 0.85em;
+
     opacity: 0.6;
 }

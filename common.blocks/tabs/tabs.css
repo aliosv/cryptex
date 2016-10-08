@@ -1,88 +1,121 @@
-.tabs {
+.tabs
+{
     width: 100%;
 }
 
-.tabs__toggle {
-    display: flex;
-    margin: 0 0 30px;
-    border-bottom: 1px solid rgba(248, 248, 248, 0.15);
-    color: #8b90a1;
+.tabs__toggle
+{
     font-size: 12px;
+
+    display: flex;
+
+    margin: 0 0 30px;
+
+    color: #8b90a1;
+    border-bottom: 1px solid rgba(248, 248, 248, 0.15);
+
     justify-content: space-between;
 }
 
-.tabs__switch {
+.tabs__switch
+{
     position: relative;
+
     padding: 15px;
-    text-align: center;
+
     cursor: pointer;
+    text-align: center;
 }
 
-.tabs__switch_active {
-    color: #37cf4f;
+.tabs__switch_active
+{
     cursor: default;
+
+    color: #37cf4f;
 }
 
-.tabs__switch_active:after {
+.tabs__switch_active:after
+{
     position: absolute;
     right: 0;
     bottom: -1px;
     left: 0;
+
     display: block;
+
     height: 1px;
-    background-image: linear-gradient(to left, #38cb4f, #2a4f9a);
+
     content: '';
+
+    background-image: linear-gradient(to left, #38cb4f, #2a4f9a);
 }
 
-.tabs__switch span {
+.tabs__switch span
+{
     display: block;
 }
 
-.tabs__switch_active span {
+.tabs__switch_active span
+{
     color: #dddfe5;
 }
 
-.tabs__tabs {
-}
 
-.tabs__tab {
+
+.tabs__tab
+{
     position: absolute;
+
     overflow: hidden;
+
     width: 0;
     height: 0;
+
+    transition: all 0.5s ease-out;
+
     opacity: 0;
-    transition: all .5s ease-out;
 }
 
-.tabs__tab_active {
+.tabs__tab_active
+{
     position: static;
+
     display: block;
+
     width: auto;
     height: auto;
+
     opacity: 1;
 }
 
-@media all and (max-width: 1000px) {
-    .tabs .tabs__toggle {
+@media all and (max-width: 1000px)
+{
+    .tabs .tabs__toggle
+    {
         overflow: hidden;
         overflow-x: auto;
+
         border-bottom: none;
     }
 
-    .tabs .tabs__tabs {
+    .tabs .tabs__tabs
+    {
         overflow: auto;
     }
 
-    .tabs .tabs__tab {
-        margin-bottom: 10px;
+    .tabs .tabs__tab
+    {
         width: 1000px;
+        margin-bottom: 10px;
     }
 
-    .tabs__toggle::-webkit-scrollbar, .tabs__tabs::-webkit-scrollbar {
+    .tabs__toggle::-webkit-scrollbar, .tabs__tabs::-webkit-scrollbar
+    {
         height: 8px;
     }
 
-    .tabs__toggle::-webkit-scrollbar-thumb, .tabs__tabs::-webkit-scrollbar-thumb {
+    .tabs__toggle::-webkit-scrollbar-thumb, .tabs__tabs::-webkit-scrollbar-thumb
+    {
         border-radius: 4px;
         background: #444854;
     }

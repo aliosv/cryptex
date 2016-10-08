@@ -1,37 +1,47 @@
-.section {}
 
-.section__inner {
+
+.section__inner
+{
     box-sizing: border-box;
-    margin: auto;
     min-width: 1000px;
     max-width: 1366px;
+    margin: auto;
 }
 
-.section__info {}
 
-.section__header {
-    position: relative;
+
+.section__header
+{
     font-size: 34px;
     line-height: 1.18;
+
+    position: relative;
 }
 
-.section__header .icon {
+.section__header .icon
+{
     position: absolute;
     right: 100%;
+
     margin-right: 17px;
 }
 
-.section__description {
-    margin: 25px 0 0;
+.section__description
+{
     font-size: 14px;
     line-height: 1.57;
+
+    margin: 25px 0 0;
+
     opacity: 0.6;
 }
 
-@media all and (max-width: 1000px) {
-    .section__inner {
+@media all and (max-width: 1000px)
+{
+    .section__inner
+    {
+        width: 375px;
         min-width: 0;
         max-width: none;
-        width: 375px;
     }
 }

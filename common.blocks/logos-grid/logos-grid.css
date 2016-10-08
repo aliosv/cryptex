@@ -1,5 +1,7 @@
-.logos-grid {
+.logos-grid
+{
     display: flex;
+
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;

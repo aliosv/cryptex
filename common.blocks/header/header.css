@@ -1,95 +1,127 @@
-.header {
-    margin: 0 0 93px;
+.header
+{
     height: 60px;
+    margin: 0 0 93px;
 }
 
-.header:after {
+.header:after
+{
     position: absolute;
     top: 60px;
     right: 0;
     left: 0;
+
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.15);
+
     content: '';
+
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
-.header__inner {
+.header__inner
+{
     display: flex;
-    padding: 0 40px;
+
     height: 100%;
+    padding: 0 40px;
+
     align-items: center;
 }
 
-.header__menu {
+.header__menu
+{
     position: absolute;
     top: 20px;
     left: 22px;
+
     display: none;
 }
 
-.header__logo {
+.header__logo
+{
     margin: 0 4% 0 0;
+
     flex-shrink: 0;
 }
 
-.header__rates {
+.header__rates
+{
     width: 30%;
+
     flex-shrink: 0;
     flex-grow: 0;
 }
 
-.header__auth-form {
+.header__auth-form
+{
     overflow: hidden;
+
     flex-grow: 1;
 }
 
-.header__auth-form .auth-form {
+.header__auth-form .auth-form
+{
     float: right;
+
     width: 100%;
+
     justify-content: flex-end;
 }
 
-@media all and (max-width: 1000px) {
-    .header {
+@media all and (max-width: 1000px)
+{
+    .header
+    {
         display: block;
+
         margin-bottom: 38px;
         padding: 0 0 50px;
     }
 
-    .header__inner {
+    .header__inner
+    {
         position: relative;
-        padding: 0;
+
         height: 100%;
+        padding: 0;
     }
 
-    .header__menu {
+    .header__menu
+    {
         display: block;
     }
 
-    .header__logo {
+    .header__logo
+    {
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
+
         margin: auto;
     }
 
-    .header .header__rates {
+    .header .header__rates
+    {
+        font-size: 12px;
+
         position: absolute;
         top: 100%;
+
         box-sizing: border-box;
+        width: 100%;
         margin: 18px 0 0;
         padding: 0 32px;
-        width: 100%;
-        font-size: 12px;
     }
 
-    .header__auth-form {
+    .header__auth-form
+    {
         display: none;
     }
 
-    .intro__header {
+    .intro__header
+    {
         font-size: 36px;
         line-height: 46px;
     }

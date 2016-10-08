@@ -1,62 +1,85 @@
-.candlestick-chart {
+.candlestick-chart
+{
     display: flex;
-    padding: 10px 0 30px;
+
     width: 100%;
     height: 300px;
+    padding: 10px 0 30px;
+
     flex-wrap: wrap;
 }
 
-.candlestick-chart__axis_candle {
+.candlestick-chart__axis_candle
+{
     position: relative;
+
     width: 65px;
+
     flex-grow: 0;
 }
 
-.candlestick-chart__axis_candle .candlestick-chart__label {
+.candlestick-chart__axis_candle .candlestick-chart__label
+{
     right: 30px;
 }
 
-.candlestick-chart__axis_histo {
+.candlestick-chart__axis_histo
+{
     position: relative;
+
     width: 65px;
+
     flex-grow: 0;
 }
 
-.candlestick-chart__axis_histo .candlestick-chart__label {
+.candlestick-chart__axis_histo .candlestick-chart__label
+{
     left: 30px;
 }
 
-.candlestick-chart__axis_time {
+.candlestick-chart__axis_time
+{
     display: flex;
-    margin: 10px 0 0;
+
     width: 100%;
+    margin: 10px 0 0;
+
     flex-shrink: 0;
     justify-content: space-between;
 }
 
-.candlestick-chart__axis_time .candlestick-chart__label {
+.candlestick-chart__axis_time .candlestick-chart__label
+{
     position: static;
 }
 
-.candlestick-chart__label {
-    position: absolute;
-    color: #8b90a1;
+.candlestick-chart__label
+{
     font-size: 11px;
     line-height: 20px;
+
+    position: absolute;
+
+    color: #8b90a1;
 }
 
-.candlestick-chart__label-inner {
+.candlestick-chart__label-inner
+{
     position: relative;
     top: 10px;
 }
 
-.candlestick-chart__chart {
+.candlestick-chart__chart
+{
     position: relative;
+
     height: 100%;
+
     flex-grow: 1;
 }
 
-.candlestick-chart__levels {
+.candlestick-chart__levels
+{
     position: absolute;
     top: 0;
     right: 0;
@@ -64,84 +87,110 @@
     left: 0;
 }
 
-.candlestick-chart__level {
+.candlestick-chart__level
+{
     position: absolute;
     right: 0;
     left: 0;
+
     height: 1px;
-    background: rgba(248, 248, 248, .15);
+
     content: '';
+
+    background: rgba(248, 248, 248, 0.15);
 }
 
-.candlestick-chart__level:first-child {
+.candlestick-chart__level:first-child
+{
     background: #232939;
 }
 
-.candlestick-chart__items {
+.candlestick-chart__items
+{
     position: relative;
+
     display: flex;
+
     height: 100%;
+
     justify-content: space-between;
 }
 
-.candlestick-chart__item {
+.candlestick-chart__item
+{
     position: relative;
+
     width: 7px;
     height: 100%;
 }
 
-.candlestick-chart__item:hover {
-    outline: 1px solid rgba(255, 255, 255, .5);
-    background: rgba(255, 255, 255, .5);
+.candlestick-chart__item:hover
+{
+    outline: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.5);
 }
 
-.candlestick-chart__candle {
+.candlestick-chart__candle
+{
     position: absolute;
     z-index: 1;
+
     width: 100%;
 }
 
-.candlestick-chart__candle:before {
+.candlestick-chart__candle:before
+{
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    margin: auto;
+
     width: 1px;
     height: 100%;
+    margin: auto;
+
     content: '';
 }
 
-.candlestick-chart__candle-body {
+.candlestick-chart__candle-body
+{
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    margin: auto;
+
     width: 100%;
+    margin: auto;
 }
 
-.candlestick-chart__candle_type_grow:before {
+.candlestick-chart__candle_type_grow:before
+{
     background: #37cf4f;
 }
 
-.candlestick-chart__candle_type_grow .candlestick-chart__candle-body {
+.candlestick-chart__candle_type_grow .candlestick-chart__candle-body
+{
     background: #37cf4f;
 }
 
-.candlestick-chart__candle_type_fall:before {
+.candlestick-chart__candle_type_fall:before
+{
     background: #e36262;
 }
 
-.candlestick-chart__candle_type_fall .candlestick-chart__candle-body {
+.candlestick-chart__candle_type_fall .candlestick-chart__candle-body
+{
     background: #e36262;
 }
 
-.candlestick-chart__histo {
+.candlestick-chart__histo
+{
     position: absolute;
     bottom: 0;
+
     width: 100%;
+
     background: #2d3753;
 }
