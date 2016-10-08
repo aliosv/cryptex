@@ -1033,7 +1033,6 @@ html {
         display: -ms-flexbox;
     
         display: flex;
-        display: none;
         margin: 0 0 20px;
     
         color: #8b90a1;
@@ -1047,7 +1046,7 @@ html {
     .tabs__switch
     {
         position: relative;
-    
+    flex-shrink: 0;
         padding: 15px;
     
         cursor: pointer;
