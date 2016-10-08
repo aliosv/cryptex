@@ -15,7 +15,7 @@
     "git-hooks": "https://github.com/aliosv/git-hooks-js/archive/windows-support.tar.gz",
     "jscs": "1.13.1",
     "jshint": "~2.5.0",
-    "jshint-groups": "~0.6.0",
+    "jshint-groups": "~0.8.0",
     "ym": "~0.1.0"
   },
   "private": true,
