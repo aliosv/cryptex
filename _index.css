@@ -949,7 +949,6 @@ html {
 /* ../../common.blocks/section/_theme/section_theme_rates.css: begin */ /**/
     .section_theme_rates
     {
-        display: none;
         padding: 90px 0 130px;
     
         background-image: radial-gradient(circle at 50% 52%, #263049, #161a26);
