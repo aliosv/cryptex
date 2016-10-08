@@ -5,6 +5,7 @@
 !.borschik
 !.bowerrc
 !.csscomb.json
+!.jscs.json
 !.travis.yml
 !.gitignore
 !bower.json
