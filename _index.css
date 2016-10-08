@@ -1,5 +1,6 @@
 /* ../../libs/bem-components/design/common.blocks/page/_theme/page_theme_islands.styl:begin */
 html {
+    overflow-x: hidden;
   min-height: 100%;
 }
 .page_theme_islands {
