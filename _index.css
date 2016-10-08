@@ -1529,7 +1529,6 @@ html {
 /* ../../common.blocks/section/_theme/section_theme_security.css: begin */ /**/
     .section_theme_security
     {
-        display: none;
         height: 445px;
     
         transition: all 0.3s ease-out;
@@ -1621,7 +1620,6 @@ html {
 /* ../../common.blocks/section/_theme/section_theme_payment.css: begin */ /**/
     .section_theme_payment
     {
-        display: none;
         padding: 180px 0 150px;
     
         transition: all 0.3s ease-out;
