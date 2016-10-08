@@ -1529,6 +1529,7 @@ html {
 /* ../../common.blocks/section/_theme/section_theme_security.css: begin */ /**/
     .section_theme_security
     {
+        display: none;
         height: 445px;
     
         transition: all 0.3s ease-out;
