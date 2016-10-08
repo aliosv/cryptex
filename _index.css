@@ -1131,6 +1131,7 @@ html {
     
         .tabs .tabs__tabs
         {
+            position: relative;
             width: 350px;
             overflow: hidden;
         }
