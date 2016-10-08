@@ -1033,7 +1033,7 @@ html {
         display: -ms-flexbox;
     
         display: flex;
-    
+        display: none;
         margin: 0 0 20px;
     
         color: #8b90a1;
