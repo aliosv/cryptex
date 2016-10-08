@@ -1005,6 +1005,8 @@ html {
             -ms-flex-direction: column-reverse;
                 flex-direction: column-reverse;
     
+            margin: 0;
+    
             -ms-flex-align: center;
     
                 align-items: center;
