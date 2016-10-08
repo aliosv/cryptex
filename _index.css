@@ -1002,9 +1002,10 @@ html {
     
         .section_theme_rates .section__tables
         {
-            margin: 0;
             -ms-flex-direction: column-reverse;
                 flex-direction: column-reverse;
+    
+            margin: 0;
     
             -ms-flex-align: center;
     
@@ -1033,6 +1034,7 @@ html {
         display: -ms-flexbox;
     
         display: flex;
+    
         margin: 0 0 20px;
     
         color: #8b90a1;
@@ -1046,7 +1048,8 @@ html {
     .tabs__switch
     {
         position: relative;
-    flex-shrink: 0;
+        -ms-flex-negative: 0;
+            flex-shrink: 0;
         padding: 15px;
     
         cursor: pointer;
@@ -1085,10 +1088,10 @@ html {
     {
         color: #dddfe5;
     }
-
-.tabs__tabs {
-    position: relative;
-}
+    
+    .tabs__tabs {
+        position: relative;
+    }
     
     .tabs__tab
     {
