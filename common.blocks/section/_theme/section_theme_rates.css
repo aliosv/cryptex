@@ -50,6 +50,8 @@
     {
         flex-direction: column-reverse;
 
+        margin: 0;
+
         align-items: center;
     }
 
