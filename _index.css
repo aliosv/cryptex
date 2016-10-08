@@ -1132,7 +1132,7 @@ html {
         .tabs .tabs__tabs
         {
             width: 350px;
-            overflow: auto;
+            overflow: hidden;
         }
     
         .tabs .tabs__tab
