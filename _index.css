@@ -356,7 +356,8 @@ html {
 
 /* ../../common.blocks/main-menu/main-menu.css: begin */ /**/
     
-    
+    .main-menu{
+        display: none!important;}
     .main-menu_opened .main-menu__body
     {
         right: auto;
