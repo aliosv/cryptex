@@ -6,6 +6,7 @@
 !.bowerrc
 !.csscomb.json
 !.jscs.json
+!.jshint-groups.js
 !.travis.yml
 !.gitignore
 !bower.json
