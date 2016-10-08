@@ -1,5 +1,6 @@
 /* ../../libs/bem-components/design/common.blocks/page/_theme/page_theme_islands.styl:begin */
 html {
+    overflow: hidden;
   min-height: 100%;
 }
 .page_theme_islands {
@@ -1154,9 +1155,10 @@ html {
 /* ../../common.blocks/candlestick-chart/candlestick-chart.css: begin */ /**/
     .candlestick-chart
     {
+
         display: -ms-flexbox;
         display: flex;
-    
+        display: none;
         width: 100%;
         height: 300px;
         padding: 40px 0 30px;
