@@ -1,5 +1,6 @@
 **/*
 !.enb/make.js
+!.githooks/**/*
 !common.blocks/**/*
 !common.bundles/index/index.bemjson.js
 !i/*
