@@ -1131,12 +1131,13 @@ html {
     
         .tabs .tabs__tabs
         {
+            width: 100%;
             overflow: auto;
         }
     
         .tabs .tabs__tab
         {
-            width: 350px;
+            width: 1000px;
             margin-bottom: 10px;
         }
     
