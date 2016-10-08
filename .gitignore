@@ -4,6 +4,7 @@
 !common.bundles/index/index.bemjson.js
 !.borschik
 !.bowerrc
+!.csscomb.json
 !.travis.yml
 !.gitignore
 !bower.json
