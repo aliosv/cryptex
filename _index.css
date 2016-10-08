@@ -1026,7 +1026,6 @@ html {
     .tabs
     {
         width: 100%;
-        display: none;
     }
     
     .tabs__toggle
@@ -1043,7 +1042,7 @@ html {
         border-bottom: 1px solid rgba(248, 248, 248, 0.15);
     
         -ms-flex-pack: justify;
-    
+        display: none;
             justify-content: space-between;
     }
     
