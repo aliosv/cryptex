@@ -2,6 +2,7 @@
 !.enb/make.js
 !common.blocks/**/*
 !common.bundles/index/index.bemjson.js
+!i/*
 !.borschik
 !.bowerrc
 !.csscomb.json
