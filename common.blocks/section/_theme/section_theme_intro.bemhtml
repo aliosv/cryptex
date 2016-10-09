@@ -1,0 +1,12 @@
+block('section').mod('theme', 'intro')(
+    content()(function() {
+        return applyNext({
+            ctx : {
+                content : [
+                    { block : 'header' },
+                    { block : 'intro' }
+                ]
+            }
+        });
+    })
+);

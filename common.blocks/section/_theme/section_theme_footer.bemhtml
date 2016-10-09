@@ -1,0 +1,26 @@
+block('section').mod('theme', 'footer').content()(function() {
+    return applyNext({
+        ctx : {
+            content : [
+                {
+                    elem : 'image',
+                    elemMods : { nexus : true }
+                },
+                {
+                    elem : 'image',
+                    elemMods : { iphone : true }
+                },
+                {
+                    elem : 'info',
+                    header : 'Available on the',
+                    icon : 'phone',
+                    content : { block : 'store-links' }
+                },
+                {
+                    block : 'copyright',
+                    content : '© Cryptex, 2016'
+                }
+            ]
+        }
+    });
+});

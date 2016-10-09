@@ -1,0 +1,15 @@
+block('section').mod('theme', 'payment').content()(function() {
+    return applyNext({
+        ctx : {
+            content : [
+                {
+                    elem : 'info',
+                    header : 'Quick deposit and withdrawal',
+                    icon : 'wallet',
+                    content : 'We work with different payment systems, credit cards, bank-wires and e-payments.'
+                },
+                { block : 'logos-grid' }
+            ]
+        }
+    });
+});

@@ -1,5 +1,5 @@
 ({
     shouldDeps : [
-        'candlestick-chart'
+        'logos-grid'
     ]
 })

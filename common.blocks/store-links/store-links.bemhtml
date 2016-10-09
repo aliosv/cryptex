@@ -1,0 +1,21 @@
+block('store-links').content()(function() {
+    return [
+        {
+            block : 'link',
+            mix : { block : 'store-links', elem : 'link' },
+            content : {
+                block : 'icon',
+                mods : { store : 'app-store' }
+            }
+        },
+        {
+            block : 'link',
+            mix : { block : 'store-links', elem : 'link' },
+            content : {
+                block : 'icon',
+                mods : { store : 'google-play' }
+            },
+            url : 'https://play.google.com/store'
+        }
+    ];
+});

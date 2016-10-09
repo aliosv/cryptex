@@ -1,1 +1,59 @@
-block('main-menu').js()(true);
+block('main-menu')(
+    js()(true),
+    content()(function() {
+        return [
+            { elem : 'toggle' },
+            {
+                elem : 'body',
+                content : [
+                    { elem : 'close' },
+                    {
+                        elem : 'content',
+                        content : [
+                            {
+                                elem : 'item',
+                                content : {
+                                    block : 'link',
+                                    content : 'Trade'
+                                }
+                            },
+                            {
+                                elem : 'item',
+                                content : {
+                                    block : 'link',
+                                    content : 'Support'
+                                }
+                            },
+                            {
+                                elem : 'item',
+                                content : {
+                                    block : 'button',
+                                    mods : {
+                                        color : 'grey',
+                                        size : 'l',
+                                        theme : 'simple',
+                                        transparent : true
+                                    },
+                                    text : 'Sign In'
+                                }
+                            },
+                            {
+                                elem : 'item',
+                                content : {
+                                    block : 'button',
+                                    mods : {
+                                        color : 'grey',
+                                        size : 'l',
+                                        theme : 'simple',
+                                        transparent : true
+                                    },
+                                    text : 'Sign Up'
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ];
+    })
+);

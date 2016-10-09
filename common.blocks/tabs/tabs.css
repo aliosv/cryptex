@@ -25,6 +25,8 @@
 
     cursor: pointer;
     text-align: center;
+
+    flex-shrink: 0;
 }
 
 .tabs__switch_active
@@ -60,7 +62,10 @@
     color: #dddfe5;
 }
 
-
+.tabs__tabs
+{
+    position: relative;
+}
 
 .tabs__tab
 {

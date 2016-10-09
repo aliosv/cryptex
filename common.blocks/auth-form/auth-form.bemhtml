@@ -1,0 +1,31 @@
+block('auth-form')(
+    tag()('form'),
+    content()(function() {
+        return [
+            {
+                block : 'input',
+                mods : { color : 'grey', size : 's', theme : 'simple', transparent : true },
+                mix : { block : 'auth-form', elem : 'login' },
+                placeholder : 'ID'
+            },
+            {
+                block : 'input',
+                mods : { color : 'grey', size : 's', theme : 'simple', transparent : true },
+                mix : { block : 'auth-form', elem : 'password' },
+                placeholder : 'Password'
+            },
+            {
+                block : 'button',
+                mods : { color : 'green', size : 's', theme : 'simple', transparent : true },
+                mix : { block : 'auth-form', elem : 'sign-in' },
+                text : 'Sign In'
+            },
+            {
+                block : 'button',
+                mods : { color : 'blue', size : 's', theme : 'simple', transparent : true },
+                mix : { block : 'auth-form', elem : 'sign-up' },
+                text : 'Sign Up'
+            }
+        ];
+    })
+);

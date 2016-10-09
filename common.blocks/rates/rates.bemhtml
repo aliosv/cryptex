@@ -1,0 +1,32 @@
+block('rates').content()(function() {
+    return [
+        {
+            elem : 'item',
+            content : [
+                { elem : 'value', content : '604.414 USD' },
+                { elem : 'name', content : '604.414 USD' }
+            ]
+        },
+        {
+            elem : 'item',
+            content : [
+                { elem : 'value', content : '592.5 USD' },
+                { elem : 'name', content : 'Low' }
+            ]
+        },
+        {
+            elem : 'item',
+            content : [
+                { elem : 'value', content : '592.5 USD' },
+                { elem : 'name', content : 'High' }
+            ]
+        },
+        {
+            elem : 'item',
+            content : [
+                { elem : 'value', content : '597,447 BTC' },
+                { elem : 'name', content : 'Volume' }
+            ]
+        }
+    ];
+});

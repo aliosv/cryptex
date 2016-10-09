@@ -81,6 +81,14 @@
     color: rgba(235, 235, 238, 0.4);
 }
 
+.section_theme_footer .copyright
+{
+    font-size: 12px;
+    font-weight: 600;
+
+    color: rgba(235, 235, 238, 0.4);
+}
+
 @media all and (max-width: 1150px)
 {
     .section_theme_footer .section__image_iphone
@@ -127,16 +135,6 @@
 
     .section_theme_footer .section__header
     {
-        font-size: 30px;
-
         margin-left: 40px;
     }
-}
-
-.copyright
-{
-    font-size: 12px;
-    font-weight: 600;
-
-    color: rgba(235, 235, 238, 0.4);
 }

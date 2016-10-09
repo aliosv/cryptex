@@ -5,11 +5,23 @@
     background: url(section_theme_intro.png) 50% 0 no-repeat, radial-gradient(circle at 50% 52%, #2b437a, #24315c);
 }
 
+.section_theme_intro .section__inner
+{
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
 @media all and (max-width: 1000px)
 {
     .section_theme_intro
     {
         background: url(section_theme_intro.png) 50% 300px no-repeat, radial-gradient(circle at 50% 52%, #2b437a, #24315c);
+    }
+
+    .section_theme_intro .section__inner
+    {
+        padding-right: 35px;
+        padding-left: 35px;
     }
 
     .section_theme_intro .intro__buttons

@@ -1,0 +1,19 @@
+block('section').mod('theme', 'security').content()(function() {
+    return applyNext({
+        ctx : {
+            content : [
+                {
+                    elem : 'image',
+                    elemMods : { screen : true }
+                },
+                {
+                    elem : 'info',
+                    header : 'Strong security',
+                    icon : 'security',
+                    content : 'You may restrict access to your account by using a white list of IP' +
+                    ' addresses, Google Authenticator system and SMS authenticator'
+                }
+            ]
+        }
+    });
+});

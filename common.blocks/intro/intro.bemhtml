@@ -1,0 +1,88 @@
+block('intro').content()(function() {
+    return applyNext({
+        ctx : {
+            content : [
+                {
+                    elem : 'header',
+                    content : 'Trade digital currency exchange',
+                    tag : 'h1'
+                },
+                {
+                    elem : 'buttons',
+                    content : [
+                        {
+                            block : 'button',
+                            mods : { color : 'blue', size : 'm', theme : 'simple' },
+                            text : 'View demo'
+                        },
+                        {
+                            block : 'button',
+                            mods : { color : 'green', size : 'm', theme : 'simple' },
+                            text : 'Sign up'
+                        }
+                    ]
+                },
+                {
+                    elem : 'about',
+                    content : [
+                        {
+                            elem : 'item',
+                            content : [
+                                {
+                                    block : 'icon',
+                                    mods : { type : 'licence' },
+                                    mix : { block : 'intro', elem : 'icon' }
+                                },
+                                {
+                                    elem : 'caption',
+                                    content : 'Licensed exchange'
+                                },
+                                {
+                                    elem : 'description',
+                                    content : 'Essential licenses and strong relations with banks'
+                                }
+                            ]
+                        },
+                        {
+                            elem : 'item',
+                            content : [
+                                {
+                                    block : 'icon',
+                                    mods : { type : 'commissions' },
+                                    mix : { block : 'intro', elem : 'icon' }
+                                },
+                                {
+                                    elem : 'caption',
+                                    content : 'Lowest commissions'
+                                },
+                                {
+                                    elem : 'description',
+                                    content : 'We offer the lowest commissions on trades, deposits and withdrawals' +
+                                    ' on the market'
+                                }
+                            ]
+                        },
+                        {
+                            elem : 'item',
+                            content : [
+                                {
+                                    block : 'icon',
+                                    mods : { type : 'interface' },
+                                    mix : { block : 'intro', elem : 'icon' }
+                                },
+                                {
+                                    elem : 'caption',
+                                    content : 'User-friendly interface'
+                                },
+                                {
+                                    elem : 'description',
+                                    content : 'Сonvenient orders management and real-time exchange data'
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    });
+});

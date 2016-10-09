@@ -1,0 +1,15 @@
+block('section').elem('info').content()(function() {
+    return [
+        {
+            elem : 'header',
+            content : [
+                this.ctx.icon ? { block : 'icon', mods : { type : this.ctx.icon } } : '',
+                this.ctx.header
+            ]
+        },
+        {
+            elem : 'description',
+            content : applyNext()
+        }
+    ];
+});

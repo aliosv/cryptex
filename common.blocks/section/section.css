@@ -1,19 +1,23 @@
 
 
-.section__inner
+.section__width
 {
-    box-sizing: border-box;
     min-width: 1000px;
     max-width: 1366px;
+    height: 100%;
     margin: auto;
 }
 
-
+.section__inner
+{
+    padding-right: 13%;
+    padding-left: 13%;
+}
 
 .section__header
 {
     font-size: 34px;
-    line-height: 1.18;
+    line-height: 40px;
 
     position: relative;
 }
@@ -38,10 +42,21 @@
 
 @media all and (max-width: 1000px)
 {
-    .section__inner
+    .section__width
     {
         width: 375px;
         min-width: 0;
         max-width: none;
+    }
+
+    .section__inner
+    {
+        padding-right: 28px;
+        padding-left: 65px;
+    }
+
+    .section__header
+    {
+        font-size: 30px;
     }
 }
