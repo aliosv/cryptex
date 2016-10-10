@@ -87,10 +87,28 @@
         margin-top: 45px;
     }
 
+    .intro__buttons
+    {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+    }
+
     .intro__buttons .button
     {
         line-height: 25px;
 
         width: 188px;
+    }
+
+    .intro__buttons .button + .button
+    {
+        margin: 27px 0 0;
+    }
+
+    .intro__about
+    {
+        flex-direction: column;
     }
 }

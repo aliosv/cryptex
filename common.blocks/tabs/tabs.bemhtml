@@ -4,6 +4,7 @@ block('tabs')(
         return [
             {
                 elem : 'toggle-wrapper',
+                mix : { block : 'custom-scroll' },
                 content : {
                     elem : 'toggle',
                     content : this.ctx.toggles.map(function(value, index) {
@@ -23,6 +24,7 @@ block('tabs')(
             },
             {
                 elem : 'tabs',
+                mix : { block : 'custom-scroll' },
                 content : this.ctx.tabs.map(function(value, index) {
                     return {
                         elem : 'tab',

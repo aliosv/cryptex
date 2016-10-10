@@ -2,6 +2,8 @@
 {
     padding: 153px 0 115px;
 
+    transition: all 0.3s ease-out;
+
     background: url(section_theme_intro.png) 50% 0 no-repeat, radial-gradient(circle at 50% 52%, #2b437a, #24315c);
 }
 
@@ -24,23 +26,5 @@
     {
         padding-right: 10px;
         padding-left: 10px;
-    }
-
-    .section_theme_intro .intro__buttons
-    {
-        display: flex;
-        flex-direction: column;
-
-        align-items: center;
-    }
-
-    .section_theme_intro .intro__buttons .button + .button
-    {
-        margin: 27px 0 0;
-    }
-
-    .section_theme_intro .intro__about
-    {
-        flex-direction: column;
     }
 }

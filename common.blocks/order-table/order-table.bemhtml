@@ -1,6 +1,7 @@
 block('order-table').content()(function() {
     return {
         elem : 'inner',
+        mix : { block : 'custom-scroll' },
         content : {
             elem : 'table',
             tag : 'table',

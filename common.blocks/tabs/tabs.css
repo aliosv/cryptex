@@ -111,23 +111,3 @@
 
     opacity: 1;
 }
-
-.tabs__toggle-wrapper::-webkit-scrollbar, .tabs__tabs::-webkit-scrollbar
-{
-    width: 8px;
-    height: 8px;
-}
-
-.tabs__toggle-wrapper::-webkit-scrollbar-thumb, .tabs__tabs::-webkit-scrollbar-thumb
-{
-    border-radius: 4px;
-    background: #444854;
-}
-
-@media all and (max-width: 1000px)
-{
-    .tabs .tabs__tab
-    {
-        width: 1000px;
-    }
-}

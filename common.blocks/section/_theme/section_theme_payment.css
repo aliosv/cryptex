@@ -21,6 +21,8 @@
 {
     width: 310px;
 
+    transition: all 0.3s ease-out;
+
     color: #131825;
 }
 
@@ -68,6 +70,9 @@
 
     .section_theme_payment .logos-grid
     {
+        position: relative;
+        left: -14px;
+
         flex-direction: row;
 
         height: 305px;
