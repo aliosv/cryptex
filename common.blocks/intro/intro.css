@@ -89,6 +89,8 @@
 
     .intro__buttons .button
     {
+        line-height: 25px;
+
         width: 188px;
     }
 }
