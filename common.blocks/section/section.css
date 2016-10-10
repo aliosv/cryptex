@@ -1,11 +1,6 @@
-
-
 .section__width
 {
-    min-width: 1000px;
-    max-width: 1366px;
     height: 100%;
-    margin: auto;
 }
 
 .section__inner
@@ -42,13 +37,6 @@
 
 @media all and (max-width: 1000px)
 {
-    .section__width
-    {
-        width: 375px;
-        min-width: 0;
-        max-width: none;
-    }
-
     .section__inner
     {
         padding-right: 28px;

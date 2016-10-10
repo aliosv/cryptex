@@ -1,7 +1,11 @@
 .header
 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
     height: 60px;
-    margin: 0 0 93px;
 }
 
 .header:after

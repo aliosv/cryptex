@@ -3,6 +3,7 @@ block('header').content()(function() {
         ctx : {
             content : {
                 elem : 'inner',
+                mix : { block : 'page', elem : 'width' },
                 content : [
                     { block : 'main-menu', mix : { block : 'header', elem : 'menu' } },
                     {

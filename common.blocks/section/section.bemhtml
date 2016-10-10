@@ -1,6 +1,7 @@
 block('section').content()(function() {
     return {
         elem : 'width',
+        mix : { block : 'page', elem : 'width' },
         content : {
             elem : 'inner',
             content : applyNext()

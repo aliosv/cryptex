@@ -66,11 +66,15 @@
     transition: all 0.3s ease-out;
 
     color: #ebebee;
+
+    flex-grow: 1;
 }
 
 .section_theme_footer .section__description
 {
     opacity: 1;
+
+    flex-grow: 1;
 }
 
 .section_theme_footer .copyright

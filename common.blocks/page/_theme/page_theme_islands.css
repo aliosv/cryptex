@@ -6,10 +6,24 @@
     min-width: 1000px;
 }
 
+.page__width
+{
+    min-width: 1000px;
+    max-width: 1366px;
+    margin: auto;
+}
+
 @media all and (max-width: 1000px)
 {
     .page
     {
         min-width: 375px;
+    }
+
+    .page__width
+    {
+        width: 375px;
+        min-width: 0;
+        max-width: none;
     }
 }
