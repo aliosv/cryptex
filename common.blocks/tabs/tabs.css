@@ -111,7 +111,6 @@
     .tabs .tabs__tab
     {
         width: 1000px;
-        margin-bottom: 10px;
     }
 
     .tabs__toggle::-webkit-scrollbar, .tabs__tabs::-webkit-scrollbar

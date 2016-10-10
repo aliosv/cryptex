@@ -120,6 +120,8 @@
 
     width: 7px;
     height: 100%;
+
+    cursor: pointer;
 }
 
 .candlestick-chart__item:hover

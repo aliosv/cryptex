@@ -68,6 +68,11 @@
     color: #ebebee;
 }
 
+.section_theme_footer .section__description
+{
+    opacity: 1;
+}
+
 .section_theme_footer .copyright
 {
     font-size: 12px;
