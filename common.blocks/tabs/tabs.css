@@ -3,7 +3,7 @@
     width: 100%;
 }
 
-.tabs__toggle-wrapper, .tabs__tabs-wrapper
+.tabs__toggle-wrapper
 {
     overflow: auto;
 
@@ -80,6 +80,10 @@
 .tabs__tabs
 {
     position: relative;
+
+    overflow: auto;
+
+    width: 100%;
 }
 
 .tabs__tab
@@ -108,13 +112,13 @@
     opacity: 1;
 }
 
-.tabs__toggle-wrapper::-webkit-scrollbar, .tabs__tabs-wrapper::-webkit-scrollbar
+.tabs__toggle-wrapper::-webkit-scrollbar, .tabs__tabs::-webkit-scrollbar
 {
     width: 8px;
     height: 8px;
 }
 
-.tabs__toggle-wrapper::-webkit-scrollbar-thumb, .tabs__tabs-wrapper::-webkit-scrollbar-thumb
+.tabs__toggle-wrapper::-webkit-scrollbar-thumb, .tabs__tabs::-webkit-scrollbar-thumb
 {
     border-radius: 4px;
     background: #444854;

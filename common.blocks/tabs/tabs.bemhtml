@@ -22,17 +22,14 @@ block('tabs')(
                 }
             },
             {
-                elem : 'tabs-wrapper',
-                content : {
-                    elem : 'tabs',
-                    content : this.ctx.tabs.map(function(value, index) {
-                        return {
-                            elem : 'tab',
-                            elemMods : { active : index === 0 },
-                            content : value
-                        };
-                    })
-                }
+                elem : 'tabs',
+                content : this.ctx.tabs.map(function(value, index) {
+                    return {
+                        elem : 'tab',
+                        elemMods : { active : index === 0 },
+                        content : value
+                    };
+                })
             }
         ];
     })
