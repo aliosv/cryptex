@@ -3,30 +3,36 @@ block('tabs')(
     content()(function() {
         return [
             {
-                elem : 'toggle',
-                content : this.ctx.toggles.map(function(value, index) {
-                    return {
-                        elem : 'switch',
-                        elemMods : { active : index === 0 },
-                        content : [
-                            value.split(' ')[0],
-                            {
-                                tag : 'span',
-                                content : value.split(' ')[1]
-                            }
-                        ]
-                    };
-                })
+                elem : 'toggle-wrapper',
+                content : {
+                    elem : 'toggle',
+                    content : this.ctx.toggles.map(function(value, index) {
+                        return {
+                            elem : 'switch',
+                            elemMods : { active : index === 0 },
+                            content : [
+                                value.split(' ')[0],
+                                {
+                                    tag : 'span',
+                                    content : value.split(' ')[1]
+                                }
+                            ]
+                        };
+                    })
+                }
             },
             {
-                elem : 'tabs',
-                content : this.ctx.tabs.map(function(value, index) {
-                    return {
-                        elem : 'tab',
-                        elemMods : { active : index === 0 },
-                        content : value
-                    };
-                })
+                elem : 'tabs-wrapper',
+                content : {
+                    elem : 'tabs',
+                    content : this.ctx.tabs.map(function(value, index) {
+                        return {
+                            elem : 'tab',
+                            elemMods : { active : index === 0 },
+                            content : value
+                        };
+                    })
+                }
             }
         ];
     })

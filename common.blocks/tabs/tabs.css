@@ -3,13 +3,28 @@
     width: 100%;
 }
 
+.tabs__toggle-wrapper, .tabs__tabs-wrapper
+{
+    overflow: auto;
+
+    width: 100%;
+}
+
+.tabs__toggle-wrapper
+{
+    margin: 0 0 10px;
+    padding: 0 0 10px;
+}
+
 .tabs__toggle
 {
     font-size: 12px;
 
-    display: flex;
+    position: relative;
 
-    margin: 0 0 20px;
+    display: inline-flex;
+
+    min-width: 100%;
 
     color: #8b90a1;
     border-bottom: 1px solid rgba(248, 248, 248, 0.15);
@@ -93,35 +108,32 @@
     opacity: 1;
 }
 
+.tabs__toggle-wrapper::-webkit-scrollbar, .tabs__tabs-wrapper::-webkit-scrollbar
+{
+    width: 8px;
+    height: 8px;
+}
+
+.tabs__toggle-wrapper::-webkit-scrollbar-thumb, .tabs__tabs-wrapper::-webkit-scrollbar-thumb
+{
+    border-radius: 4px;
+    background: #444854;
+}
+
 @media all and (max-width: 1000px)
 {
     .tabs .tabs__toggle
     {
-        overflow: hidden;
-        overflow-x: auto;
-
-        border-bottom: none;
+        border-bottom: 0;
     }
 
-    .tabs .tabs__tabs
+    .tabs .tabs__switch_active:after
     {
-        overflow: auto;
+        display: none;
     }
 
     .tabs .tabs__tab
     {
         width: 1000px;
-    }
-
-    .tabs__toggle::-webkit-scrollbar, .tabs__tabs::-webkit-scrollbar
-    {
-        width: 8px;
-        height: 8px;
-    }
-
-    .tabs__toggle::-webkit-scrollbar-thumb, .tabs__tabs::-webkit-scrollbar-thumb
-    {
-        border-radius: 4px;
-        background: #444854;
     }
 }
