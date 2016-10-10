@@ -126,16 +126,6 @@
 
 @media all and (max-width: 1000px)
 {
-    .tabs .tabs__toggle
-    {
-        border-bottom: 0;
-    }
-
-    .tabs .tabs__switch_active:after
-    {
-        display: none;
-    }
-
     .tabs .tabs__tab
     {
         width: 1000px;

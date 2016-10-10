@@ -61,7 +61,7 @@
 .section_theme_footer .section__header
 {
     width: 100%;
-    margin-bottom: 35px;
+    margin-bottom: 13px;
 
     transition: all 0.3s ease-out;
 
@@ -144,6 +144,7 @@
 
     .section_theme_footer .section__header
     {
+        margin-bottom: 6px;
         margin-left: 40px;
     }
 }
