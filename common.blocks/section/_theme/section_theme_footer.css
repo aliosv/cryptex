@@ -42,7 +42,7 @@
     background: url(section_device_nexus.png) 0 0 no-repeat;
 }
 
-.section_theme_footer .store-links
+.section_theme_footer .section__info
 {
     position: absolute;
     top: 170px;
@@ -124,7 +124,7 @@
         background-size: auto 100%;
     }
 
-    .section_theme_footer .store-links
+    .section_theme_footer .section__info
     {
         top: 70px;
         right: 33px;

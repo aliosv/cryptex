@@ -5,14 +5,11 @@
     background-image: radial-gradient(circle at 50% 52%, #263049, #161a26);
 }
 
-.section_theme_rates .section__width
+.section_theme_rates .section__inner
 {
     padding-right: 12.4%;
     padding-left: 12.4%;
-}
 
-.section_theme_rates .section__inner
-{
     transition: all 0.3s ease-out;
 }
 
@@ -45,7 +42,7 @@
         padding: 37px 0 57px;
     }
 
-    .section_theme_rates .section__width
+    .section_theme_rates .section__inner
     {
         padding-right: 0;
         padding-left: 0;
