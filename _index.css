@@ -17,6 +17,10 @@ html {
         line-height: normal;
     
         min-width: 1000px;
+        width: 82%;
+        transform-origin: 50% 0;
+        transform: scale(1.2);
+        margin: auto;
     }
     
     .page__width
