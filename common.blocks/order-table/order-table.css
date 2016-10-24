@@ -8,6 +8,19 @@
     padding: 72px 0 0;
 }
 
+.order-table:before
+{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    height: 72px;
+
+    content: '';
+}
+
 .order-table__inner
 {
     overflow: hidden;
