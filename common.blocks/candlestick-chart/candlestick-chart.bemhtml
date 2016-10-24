@@ -80,11 +80,14 @@ block('candlestick-chart').content()(function() {
                             },
                             {
                                 elem : 'item',
-                                tag : 'label',
-                                attrs : {
-                                    for : tooltipName + '-' + index
-                                },
                                 content : [
+                                    {
+                                        elem : 'item-label',
+                                        tag : 'label',
+                                        attrs : {
+                                            for : tooltipName + '-' + index
+                                        }
+                                    },
                                     {
                                         elem : 'candle',
                                         elemMods : { type : item[3] > item[2] ? 'grow' : 'fall' },
