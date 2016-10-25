@@ -4,6 +4,8 @@
     line-height: normal;
 
     min-width: 1000px;
+
+    transition: all 0.3s ease-out;
 }
 
 .page__width
@@ -25,5 +27,19 @@
         width: 375px;
         min-width: 0;
         max-width: none;
+    }
+}
+
+@media all and (min-width: 1650px)
+{
+    html
+    {
+        overflow-x: hidden;
+    }
+
+    .page
+    {
+        transform: scale(1.2);
+        transform-origin: 50% 0;
     }
 }
