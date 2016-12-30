@@ -14,7 +14,7 @@ after_success: |
     cp _index.js cryptex
     cp _index.css cryptex
     cp index.html cryptex
-    cp -r i/ cryptex
+    cp -r ../../i/ cryptex
     cd cryptex
     git add --all
     git -c user.name='travis' -c user.email='travis' commit -m $TRAVIS_COMMIT
